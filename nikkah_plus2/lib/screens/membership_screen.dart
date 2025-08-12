@@ -15,6 +15,8 @@ class MembershipPlansScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color green = const Color(0xFF2E7D32);
+    final Color brown = const Color(0xFF8B4513);
+    final Color darkBrown = const Color(0xFF5C3317);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -36,24 +38,34 @@ class MembershipPlansScreen extends StatelessWidget {
               'Upgrade Your Journey to Love',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Choose the plan that best fits your needs and unlock premium features to find your perfect match.',
-              textAlign: TextAlign.center,
-            ),
             const SizedBox(height: 16),
-            // Billing Period Selector
+
+            // Billing Period Heading
+            const Text(
+              "Billing Period",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+
+            // Billing Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _billingButton('Monthly', true, green),
-                _billingButton('3 Months', false, green),
-                _billingButton('6 Months', false, green),
-                _billingButton('12 Months', false, green),
+                _billingButton("Monthly", active: true, green: green),
+                _billingButtonWithTag("3 Months", "Save 17%", green),
+                _billingButtonWithTag("Yearly", "Save 37%", green),
               ],
             ),
+
             const SizedBox(height: 20),
-            // Free Plan Card
+            Text(
+              'Choose the plan that best fits your needs and unlock premium features to find your perfect match.',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: brown),
+            ),
+            const SizedBox(height: 16),
+
+            // Free Plan
             _planCard(
               title: 'Free',
               price: '\$0 /month',
@@ -66,10 +78,13 @@ class MembershipPlansScreen extends StatelessWidget {
               ],
               buttonText: 'Select Plan',
               tag: '',
-              green: green,
+              tagColor: green,
+              buttonColor: brown,
+              checkColor: darkBrown,
             ),
             const SizedBox(height: 16),
-            // Silver Plan Card
+
+            // Silver Plan
             _planCard(
               title: 'Silver',
               price: '\$19.99 /month',
@@ -86,10 +101,13 @@ class MembershipPlansScreen extends StatelessWidget {
               ],
               buttonText: 'Your Current Plan',
               tag: 'Most Popular',
-              green: green,
+              tagColor: green,
+              buttonColor: brown,
+              checkColor: darkBrown,
             ),
             const SizedBox(height: 16),
-            // Gold Plan Card
+
+            // Gold Plan
             _planCard(
               title: 'Gold',
               price: '\$39.99 /month',
@@ -105,12 +123,18 @@ class MembershipPlansScreen extends StatelessWidget {
               ],
               buttonText: 'Your Current Plan',
               tag: '',
-              green: green,
+              tagColor: green,
+              buttonColor: brown,
+              checkColor: darkBrown,
             ),
+
             const SizedBox(height: 20),
+
             // Feature Comparison Table
             _comparisonTable(),
+
             const SizedBox(height: 20),
+
             // Upgrade Button
             ElevatedButton(
               onPressed: () {},
@@ -126,7 +150,7 @@ class MembershipPlansScreen extends StatelessWidget {
               ),
               child: const Text(
                 'Upgrade to Gold',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
             const SizedBox(height: 8),
@@ -137,6 +161,8 @@ class MembershipPlansScreen extends StatelessWidget {
           ],
         ),
       ),
+
+      // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: green,
         unselectedItemColor: Colors.grey,
@@ -150,20 +176,59 @@ class MembershipPlansScreen extends StatelessWidget {
     );
   }
 
-  static Widget _billingButton(String text, bool active, Color green) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: active ? green : Colors.grey[200],
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(color: active ? Colors.white : Colors.black),
+  // Billing Button
+  static Widget _billingButton(
+    String text, {
+    required bool active,
+    required Color green,
+  }) {
+    return Expanded(
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 4),
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        decoration: BoxDecoration(
+          color: active ? green : Colors.grey[200],
+          borderRadius: BorderRadius.circular(25),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: TextStyle(
+            color: active ? Colors.white : Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
 
+  // Billing Button with Save Tag
+  static Widget _billingButtonWithTag(String text, String tag, Color green) {
+    return Expanded(
+      child: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          _billingButton(text, active: false, green: green),
+          Positioned(
+            top: -6,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              decoration: BoxDecoration(
+                color: green,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                tag,
+                style: const TextStyle(color: Colors.white, fontSize: 10),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Plan Card
   static Widget _planCard({
     required String title,
     required String price,
@@ -171,7 +236,9 @@ class MembershipPlansScreen extends StatelessWidget {
     required List<String> features,
     required String buttonText,
     required String tag,
-    required Color green,
+    required Color tagColor,
+    required Color buttonColor,
+    required Color checkColor,
   }) {
     return Card(
       elevation: 2,
@@ -183,16 +250,23 @@ class MembershipPlansScreen extends StatelessWidget {
           children: [
             if (tag.isNotEmpty)
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: BoxDecoration(
-                  color: green,
+                  color: tagColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Text(
-                  tag,
-                  style: const TextStyle(color: Colors.white, fontSize: 12),
+                child: Center(
+                  child: Text(
+                    tag,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
+            const SizedBox(height: 8),
             Text(
               title,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -204,30 +278,60 @@ class MembershipPlansScreen extends StatelessWidget {
             const SizedBox(height: 4),
             Text(description),
             const SizedBox(height: 8),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+
+            // Two-column Features
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
               children: features
                   .map(
-                    (feature) => Row(
-                      children: [
-                        const Icon(Icons.check, color: Colors.green, size: 16),
-                        const SizedBox(width: 4),
-                        Expanded(child: Text(feature)),
-                      ],
+                    (feature) => SizedBox(
+                      width:
+                          (MediaQueryData.fromWindow(
+                                WidgetsBinding.instance.window,
+                              ).size.width -
+                              80) /
+                          2,
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              color: checkColor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.check,
+                              color: Colors.white,
+                              size: 14,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Expanded(child: Text(feature)),
+                        ],
+                      ),
                     ),
                   )
                   .toList(),
             ),
+
             const SizedBox(height: 8),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: green,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: buttonColor,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: Text(
+                  buttonText,
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
-              child: Text(buttonText),
             ),
           ],
         ),
@@ -235,6 +339,7 @@ class MembershipPlansScreen extends StatelessWidget {
     );
   }
 
+  // Comparison Table
   static Widget _comparisonTable() {
     return Table(
       border: TableBorder.all(color: Colors.grey),
