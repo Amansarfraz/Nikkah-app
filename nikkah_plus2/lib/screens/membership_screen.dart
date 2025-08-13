@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'discover_matches_screen.dart';
 
 void main() {
   runApp(
@@ -40,14 +41,12 @@ class MembershipPlansScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
-            // Billing Period Heading
             const Text(
               "Billing Period",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
 
-            // Billing Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -67,6 +66,7 @@ class MembershipPlansScreen extends StatelessWidget {
 
             // Free Plan
             _planCard(
+              context: context,
               title: 'Free',
               price: '\$0 /month',
               description: 'Basic features to get started',
@@ -86,6 +86,7 @@ class MembershipPlansScreen extends StatelessWidget {
 
             // Silver Plan
             _planCard(
+              context: context,
               title: 'Silver',
               price: '\$19.99 /month',
               description: 'Enhanced features for serious seekers',
@@ -109,6 +110,7 @@ class MembershipPlansScreen extends StatelessWidget {
 
             // Gold Plan
             _planCard(
+              context: context,
               title: 'Gold',
               price: '\$39.99 /month',
               description: 'Premium features for ultimate experience',
@@ -130,14 +132,19 @@ class MembershipPlansScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Feature Comparison Table
             _comparisonTable(),
 
             const SizedBox(height: 20),
 
-            // Upgrade Button
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DiscoverMatchesScreen(),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: green,
                 shape: RoundedRectangleBorder(
@@ -162,7 +169,6 @@ class MembershipPlansScreen extends StatelessWidget {
         ),
       ),
 
-      // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: green,
         unselectedItemColor: Colors.grey,
@@ -176,7 +182,6 @@ class MembershipPlansScreen extends StatelessWidget {
     );
   }
 
-  // Billing Button
   static Widget _billingButton(
     String text, {
     required bool active,
@@ -202,7 +207,6 @@ class MembershipPlansScreen extends StatelessWidget {
     );
   }
 
-  // Billing Button with Save Tag
   static Widget _billingButtonWithTag(String text, String tag, Color green) {
     return Expanded(
       child: Stack(
@@ -228,8 +232,8 @@ class MembershipPlansScreen extends StatelessWidget {
     );
   }
 
-  // Plan Card
   static Widget _planCard({
+    required BuildContext context,
     required String title,
     required String price,
     required String description,
@@ -279,19 +283,13 @@ class MembershipPlansScreen extends StatelessWidget {
             Text(description),
             const SizedBox(height: 8),
 
-            // Two-column Features
             Wrap(
               spacing: 8,
               runSpacing: 8,
               children: features
                   .map(
                     (feature) => SizedBox(
-                      width:
-                          (MediaQueryData.fromWindow(
-                                WidgetsBinding.instance.window,
-                              ).size.width -
-                              80) /
-                          2,
+                      width: (MediaQuery.of(context).size.width - 80) / 2,
                       child: Row(
                         children: [
                           Container(
@@ -319,7 +317,14 @@ class MembershipPlansScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DiscoverMatchesScreen(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: buttonColor,
                   padding: const EdgeInsets.symmetric(vertical: 14),
@@ -339,7 +344,6 @@ class MembershipPlansScreen extends StatelessWidget {
     );
   }
 
-  // Comparison Table
   static Widget _comparisonTable() {
     return Table(
       border: TableBorder.all(color: Colors.grey),
