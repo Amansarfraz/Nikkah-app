@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import 'swipe_left_screen.dart';
 
-class SwipeRightScreen extends StatelessWidget {
-  const SwipeRightScreen({super.key});
+class SwipeLeftScreen extends StatelessWidget {
+  const SwipeLeftScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +101,7 @@ class SwipeRightScreen extends StatelessWidget {
                           children: [
                             // Abdul Bakr image (unchanged)
                             Image.asset(
-                              "assets/images/content.png",
+                              "assets/images/photo main.png",
                               fit: BoxFit.cover,
                               width: cardWidth,
                               height: double.infinity,
@@ -123,7 +122,7 @@ class SwipeRightScreen extends StatelessWidget {
                                       ClipRRect(
                                         borderRadius: BorderRadius.circular(16),
                                         child: Image.asset(
-                                          "assets/images/photo(2).png",
+                                          "assets/images/photo (1).png",
                                           fit: BoxFit.cover,
                                           width: cardWidth,
                                           height: double.infinity,
@@ -257,38 +256,26 @@ class SwipeRightScreen extends StatelessWidget {
               ),
             ),
 
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SwipeLeftScreen(),
+            // Bottom Bar
+            Container(
+              height: 80,
+              decoration: BoxDecoration(
+                color: const Color(0xFF8B5E3C),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Icon(Icons.phone, color: Colors.white, size: 26),
+                  Icon(
+                    Icons.chat_bubble_outline,
+                    color: Colors.white,
+                    size: 26,
                   ),
-                );
-              }, // Bottom Bar
-              child: Container(
-                height: 80,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF8B5E3C),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 20,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    Icon(Icons.phone, color: Colors.white, size: 26),
-                    Icon(
-                      Icons.chat_bubble_outline,
-                      color: Colors.white,
-                      size: 26,
-                    ),
-                    Icon(Icons.person_outline, color: Colors.white, size: 26),
-                    Icon(Icons.share, color: Colors.white, size: 26),
-                  ],
-                ),
+                  Icon(Icons.person_outline, color: Colors.white, size: 26),
+                  Icon(Icons.share, color: Colors.white, size: 26),
+                ],
               ),
             ),
           ],

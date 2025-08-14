@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/quick_view_screen.dart';
 import 'screens/discover_matches_screen.dart';
-import 'package:nikkah_plus2/screens/membership_screen.dart';
+import 'screens/membership_screen.dart';
 import 'screens/interests_personality_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/get_started_sign_up_screen.dart';
@@ -27,6 +27,7 @@ import 'screens/bio_screen_app2.dart';
 import 'screens/interests_personality_page.dart';
 import 'screens/home_screen.dart';
 import 'screens/swipe_right_screen.dart';
+import 'screens/swipe_left_screen.dart';
 
 void main() {
   runApp(const NikkahPlus2App());
@@ -73,7 +74,8 @@ class NikkahPlus2App extends StatelessWidget {
         '/membership_screen': (context) => MembershipPlansScreen(),
         '/discover_matches_screen': (context) => DiscoverMatchesScreen(),
         '/quick_view_screen': (context) => QuickViewScreen(),
-        '/swipe_right_screen': (context) => SwipeRightScreen(),
+        '/swipe_right_screen': (context) => const SwipeRightScreen(),
+        '/swipe_left_screen': (context) => const SwipeLeftScreen(),
       },
     );
   }
