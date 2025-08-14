@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'swipe_left_screen.dart'; // Import your SwipeLeftScreen here
 
 class SwipeRightScreen extends StatelessWidget {
   const SwipeRightScreen({super.key});
@@ -16,9 +17,9 @@ class SwipeRightScreen extends StatelessWidget {
             // Header
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Text(
+              child: const Text(
                 "Discover Matches",
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -37,10 +38,10 @@ class SwipeRightScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             "Upgrade to Nika7 Gold",
                             style: TextStyle(
@@ -99,7 +100,7 @@ class SwipeRightScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16),
                         child: Stack(
                           children: [
-                            // Abdul Bakr image (unchanged)
+                            // Abdul Bakr image
                             Image.asset(
                               "assets/images/content.png",
                               fit: BoxFit.cover,
@@ -107,13 +108,14 @@ class SwipeRightScreen extends StatelessWidget {
                               height: double.infinity,
                             ),
 
-                            // Rotated Mohammad Ali image & black area
+                            // Adjusted Mohammad Ali image
                             Positioned(
                               top: 0,
                               left: 0,
                               child: Transform.rotate(
                                 angle:
-                                    -math.pi / 12, // adjust for more rotation
+                                    math.pi /
+                                    18, // slight tilt (positive angle)
                                 child: SizedBox(
                                   width: cardWidth,
                                   height: 380,
@@ -134,8 +136,8 @@ class SwipeRightScreen extends StatelessWidget {
                                         right: 0,
                                         child: Transform.rotate(
                                           angle:
-                                              -math.pi /
-                                              12, // same rotation for black area
+                                              math.pi /
+                                              18, // match tilt for black area
                                           child: Container(
                                             padding: const EdgeInsets.symmetric(
                                               horizontal: 12,
@@ -159,10 +161,10 @@ class SwipeRightScreen extends StatelessWidget {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Column(
+                                                const Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
-                                                  children: const [
+                                                  children: [
                                                     Text(
                                                       "Mohammad Ali, 29",
                                                       style: TextStyle(
@@ -234,12 +236,22 @@ class SwipeRightScreen extends StatelessWidget {
                             bgColor: Colors.brown.shade100,
                             iconColor: Colors.green,
                           ),
-                          _customCircleIcon(
-                            bgSize: 99,
-                            iconSize: 42.5,
-                            icon: Icons.favorite,
-                            bgColor: const Color(0xFF8B5E3C),
-                            iconColor: Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SwipeLeftScreen(),
+                                ),
+                              );
+                            },
+                            child: _customCircleIcon(
+                              bgSize: 99,
+                              iconSize: 42.5,
+                              icon: Icons.favorite,
+                              bgColor: const Color(0xFF8B5E3C),
+                              iconColor: Colors.white,
+                            ),
                           ),
                           _customCircleIcon(
                             bgSize: 78,
@@ -256,26 +268,38 @@ class SwipeRightScreen extends StatelessWidget {
               ),
             ),
 
-            // Bottom Bar
-            Container(
-              height: 80,
-              decoration: BoxDecoration(
-                color: const Color(0xFF8B5E3C),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  Icon(Icons.phone, color: Colors.white, size: 26),
-                  Icon(
-                    Icons.chat_bubble_outline,
-                    color: Colors.white,
-                    size: 26,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SwipeLeftScreen(),
                   ),
-                  Icon(Icons.person_outline, color: Colors.white, size: 26),
-                  Icon(Icons.share, color: Colors.white, size: 26),
-                ],
+                );
+              }, // Bottom Bar
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF8B5E3C),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 20,
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Icon(Icons.phone, color: Colors.white, size: 26),
+                    Icon(
+                      Icons.chat_bubble_outline,
+                      color: Colors.white,
+                      size: 26,
+                    ),
+                    Icon(Icons.person_outline, color: Colors.white, size: 26),
+                    Icon(Icons.share, color: Colors.white, size: 26),
+                  ],
+                ),
               ),
             ),
           ],
