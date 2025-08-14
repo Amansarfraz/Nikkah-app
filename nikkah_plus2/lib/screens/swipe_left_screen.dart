@@ -14,11 +14,11 @@ class SwipeLeftScreen extends StatelessWidget {
         child: Column(
           children: [
             // Header
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 12),
               child: Text(
                 "Discover Matches",
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -37,10 +37,10 @@ class SwipeLeftScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             "Upgrade to Nika7 Gold",
                             style: TextStyle(
@@ -107,7 +107,7 @@ class SwipeLeftScreen extends StatelessWidget {
                               height: double.infinity,
                             ),
 
-                            // Rotated Mohammad Ali image & black area
+                            // Rotated Mohammad Ali image but replaced overlay with Abdul Bakr details
                             Positioned(
                               top: 0,
                               left: 0,
@@ -128,84 +128,72 @@ class SwipeLeftScreen extends StatelessWidget {
                                           height: double.infinity,
                                         ),
                                       ),
+
+                                      // Name, profession & button directly on image bottom
                                       Positioned(
-                                        bottom: 0,
-                                        left: 0,
-                                        right: 0,
-                                        child: Transform.rotate(
-                                          angle:
-                                              -math.pi /
-                                              12, // same rotation for black area
-                                          child: Container(
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 12,
-                                              vertical: 8,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              color: Colors.black.withOpacity(
-                                                0.8,
-                                              ),
-                                              borderRadius:
-                                                  const BorderRadius.only(
-                                                    bottomLeft: Radius.circular(
-                                                      16,
-                                                    ),
-                                                    bottomRight:
-                                                        Radius.circular(16),
+                                        bottom: 12,
+                                        left: 12,
+                                        right: 12,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: const [
+                                                Text(
+                                                  "Abdul Bakr, 29",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18,
+                                                    shadows: [
+                                                      Shadow(
+                                                        blurRadius: 4,
+                                                        color: Colors.black54,
+                                                        offset: Offset(1, 1),
+                                                      ),
+                                                    ],
                                                   ),
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: const [
-                                                    Text(
-                                                      "Mohammad Ali, 29",
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 18,
-                                                      ),
-                                                    ),
-                                                    SizedBox(height: 4),
-                                                    Text(
-                                                      "Photographer",
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 14,
-                                                      ),
-                                                    ),
-                                                  ],
                                                 ),
-                                                Container(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                        horizontal: 10,
-                                                        vertical: 6,
+                                                SizedBox(height: 4),
+                                                Text(
+                                                  "Civil Engineer",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 14,
+                                                    shadows: [
+                                                      Shadow(
+                                                        blurRadius: 4,
+                                                        color: Colors.black54,
+                                                        offset: Offset(1, 1),
                                                       ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFF8B5E3C),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          20,
-                                                        ),
-                                                  ),
-                                                  child: const Text(
-                                                    "Quick View",
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 10,
-                                                    ),
+                                                    ],
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                          ),
+                                            Container(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 10,
+                                                    vertical: 6,
+                                                  ),
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFF8B5E3C),
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: const Text(
+                                                "Quick View",
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 10,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],

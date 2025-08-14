@@ -123,7 +123,7 @@ class SwipeRightScreen extends StatelessWidget {
                                       ClipRRect(
                                         borderRadius: BorderRadius.circular(16),
                                         child: Image.asset(
-                                          "assets/images/photo(2).png",
+                                          "assets/images/photo(3).png",
                                           fit: BoxFit.cover,
                                           width: cardWidth,
                                           height: double.infinity,
