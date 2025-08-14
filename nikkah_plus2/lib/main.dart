@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/quick_view_screen.dart';
 import 'screens/discover_matches_screen.dart';
 import 'package:nikkah_plus2/screens/membership_screen.dart';
 import 'screens/interests_personality_screen.dart';
@@ -25,6 +26,7 @@ import 'screens/bio_screen_app.dart';
 import 'screens/bio_screen_app2.dart';
 import 'screens/interests_personality_page.dart';
 import 'screens/home_screen.dart';
+import 'screens/swipe_right_screen.dart';
 
 void main() {
   runApp(const NikkahPlus2App());
@@ -70,6 +72,8 @@ class NikkahPlus2App extends StatelessWidget {
         '/home_screen': (context) => HomeScreen(),
         '/membership_screen': (context) => MembershipPlansScreen(),
         '/discover_matches_screen': (context) => DiscoverMatchesScreen(),
+        '/quick_view_screen': (context) => QuickViewScreen(),
+        '/swipe_right_screen': (context) => SwipeRightScreen(),
       },
     );
   }

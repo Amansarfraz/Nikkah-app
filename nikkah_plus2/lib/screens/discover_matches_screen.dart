@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quick_view_screen.dart';
 
 class DiscoverMatchesScreen extends StatelessWidget {
   const DiscoverMatchesScreen({super.key});
@@ -15,7 +16,7 @@ class DiscoverMatchesScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 12),
               child: Text(
                 "Discover Matches",
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -28,7 +29,7 @@ class DiscoverMatchesScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  color: const Color(0xFFE8F5E9),
+                  color: const Color(0xFF006400),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 padding: const EdgeInsets.all(12),
@@ -41,7 +42,7 @@ class DiscoverMatchesScreen extends StatelessWidget {
                           Text(
                             "Upgrade to Nika7 Gold",
                             style: TextStyle(
-                              color: Color(0xFF006400),
+                              color: Colors.white,
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -49,17 +50,14 @@ class DiscoverMatchesScreen extends StatelessWidget {
                           SizedBox(height: 4),
                           Text(
                             "See who likes you & unlock premium features",
-                            style: TextStyle(
-                              color: Color(0xFF555555),
-                              fontSize: 13,
-                            ),
+                            style: TextStyle(color: Colors.white, fontSize: 13),
                           ),
                         ],
                       ),
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF00796B),
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -72,6 +70,7 @@ class DiscoverMatchesScreen extends StatelessWidget {
                       child: const Text(
                         "Upgrade",
                         style: TextStyle(
+                          color: Color(0xFF006400),
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
                         ),
@@ -89,9 +88,12 @@ class DiscoverMatchesScreen extends StatelessWidget {
                   horizontal: 16,
                   vertical: 8,
                 ),
-                child: Stack(
+                child: Column(
                   children: [
+                    // Image with reduced width and slightly taller
                     Container(
+                      height: 380,
+                      width: MediaQuery.of(context).size.width * 0.85,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
@@ -107,81 +109,74 @@ class DiscoverMatchesScreen extends StatelessWidget {
                         child: Stack(
                           children: [
                             Image.asset(
-                              "assets/images/mohammad_ali.jpg",
+                              "assets/images/photo.png",
                               fit: BoxFit.cover,
                               width: double.infinity,
                               height: double.infinity,
                             ),
-                            // Top-left badge
-                            Positioned(
-                              top: 8,
-                              left: 8,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.6),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: const Text(
-                                  "1 km",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // Quick View button (right center)
-                            Positioned(
-                              right: 8,
-                              top: 80,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF8B5E3C),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: const Text(
-                                  "Quick View",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // Bottom overlay text
+
+                            // Bottom Info Box over the image
                             Positioned(
                               bottom: 0,
                               left: 0,
                               right: 0,
                               child: Container(
-                                padding: const EdgeInsets.all(12),
-                                color: Colors.black.withOpacity(0.6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: const [
-                                    Text(
-                                      "Mohammad Ali, 33",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                      ),
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.8),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(16),
+                                    bottomRight: Radius.circular(16),
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        Text(
+                                          "Mohammad Ali, 33",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                        SizedBox(height: 4),
+                                        Text(
+                                          "Charted Accountant",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    SizedBox(height: 4),
-                                    Text(
-                                      "Charted Accountant",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 14,
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                        vertical: 6,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF8B5E3C),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: const Text(
+                                        "Quick View",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 10,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -192,28 +187,78 @@ class DiscoverMatchesScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    const SizedBox(height: 16),
+
+                    // Three icons row with specific sizes
+                    SizedBox(
+                      width: 295,
+                      height: 99,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _customCircleIcon(
+                            bgSize: 78,
+                            iconSize: 30,
+                            icon: Icons.close,
+                            bgColor: Colors.brown.shade100,
+                            iconColor: Colors.green,
+                          ),
+                          _customCircleIcon(
+                            bgSize: 99,
+                            iconSize: 42.5,
+                            icon: Icons.favorite,
+                            bgColor: const Color(0xFF8B5E3C),
+                            iconColor: Colors.white,
+                          ),
+                          _customCircleIcon(
+                            bgSize: 78,
+                            iconSize: 25,
+                            icon: Icons.star,
+                            bgColor: Colors.brown.shade100,
+                            iconColor: Colors.brown,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
 
-            // Bottom Navigation
-            Container(
-              color: Colors.white,
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _navIcon(Icons.close, Colors.teal.shade100, Colors.teal),
-                  _navIcon(
-                    Icons.favorite,
-                    const Color(0xFF8B5E3C),
-                    Colors.white,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const QuickViewScreen(),
                   ),
-                  _navIcon(Icons.star, Colors.brown.shade100, Colors.brown),
-                  const Icon(Icons.chat_bubble_outline, color: Colors.grey),
-                  const Icon(Icons.person_outline, color: Colors.grey),
-                ],
+                );
+              },
+              // Bottom Navigation Bar fully rounded and taller
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF8B5E3C),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 20,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Icon(Icons.phone, color: Colors.white, size: 26),
+                    Icon(
+                      Icons.chat_bubble_outline,
+                      color: Colors.white,
+                      size: 26,
+                    ),
+                    Icon(Icons.person_outline, color: Colors.white, size: 26),
+                    Icon(Icons.share, color: Colors.white, size: 26),
+                  ],
+                ),
               ),
             ),
           ],
@@ -222,11 +267,21 @@ class DiscoverMatchesScreen extends StatelessWidget {
     );
   }
 
-  Widget _navIcon(IconData icon, Color bg, Color iconColor) {
+  // Custom icon widget with exact sizes
+  Widget _customCircleIcon({
+    required double bgSize,
+    required double iconSize,
+    required IconData icon,
+    required Color bgColor,
+    required Color iconColor,
+  }) {
     return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(color: bg, shape: BoxShape.circle),
-      child: Icon(icon, color: iconColor, size: 24),
+      width: bgSize,
+      height: bgSize,
+      decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
+      child: Center(
+        child: Icon(icon, color: iconColor, size: iconSize),
+      ),
     );
   }
 }
