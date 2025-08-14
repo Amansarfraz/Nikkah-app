@@ -6,14 +6,13 @@ class SwipeLeftScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double cardWidth = MediaQuery.of(context).size.width * 0.65; // 65% width
+    double cardWidth = MediaQuery.of(context).size.width * 0.65;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
-            // Header
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 12),
               child: Text(
@@ -99,7 +98,7 @@ class SwipeLeftScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16),
                         child: Stack(
                           children: [
-                            // Abdul Bakr image (unchanged)
+                            // Abdul Bakr image with black overlay at bottom
                             Image.asset(
                               "assets/images/photo main.png",
                               fit: BoxFit.cover,
@@ -107,96 +106,95 @@ class SwipeLeftScreen extends StatelessWidget {
                               height: double.infinity,
                             ),
 
-                            // Rotated Mohammad Ali image but replaced overlay with Abdul Bakr details
+                            // Black gradient overlay for bottom text
+                            Positioned(
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              child: Container(
+                                height: 70,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                    colors: [
+                                      Colors.black.withOpacity(0.7),
+                                      Colors.transparent,
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                            // Name & profession inside black area
+                            Positioned(
+                              bottom: 12,
+                              left: 12,
+                              right: 12,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: const [
+                                      Text(
+                                        "Abdul Bakr, 29",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      SizedBox(height: 4),
+                                      Text(
+                                        "Civil Engineer",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                      vertical: 6,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFF8B5E3C),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: const Text(
+                                      "Quick View",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            // Rotated Mohammad Ali image
                             Positioned(
                               top: 0,
                               left: 0,
                               child: Transform.rotate(
-                                angle:
-                                    -math.pi / 12, // adjust for more rotation
+                                angle: -math.pi / 12,
                                 child: SizedBox(
                                   width: cardWidth,
                                   height: 380,
-                                  child: Stack(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: Image.asset(
-                                          "assets/images/photo (1).png",
-                                          fit: BoxFit.cover,
-                                          width: cardWidth,
-                                          height: double.infinity,
-                                        ),
-                                      ),
-
-                                      // Name, profession & button directly on image bottom
-                                      Positioned(
-                                        bottom: 12,
-                                        left: 12,
-                                        right: 12,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: const [
-                                                Text(
-                                                  "Abdul Bakr, 29",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 18,
-                                                    shadows: [
-                                                      Shadow(
-                                                        blurRadius: 4,
-                                                        color: Colors.black54,
-                                                        offset: Offset(1, 1),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                SizedBox(height: 4),
-                                                Text(
-                                                  "Civil Engineer",
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 14,
-                                                    shadows: [
-                                                      Shadow(
-                                                        blurRadius: 4,
-                                                        color: Colors.black54,
-                                                        offset: Offset(1, 1),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                    horizontal: 10,
-                                                    vertical: 6,
-                                                  ),
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xFF8B5E3C),
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                              ),
-                                              child: const Text(
-                                                "Quick View",
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 10,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(16),
+                                    child: Image.asset(
+                                      "assets/images/photo (1).png",
+                                      fit: BoxFit.cover,
+                                      width: cardWidth,
+                                      height: double.infinity,
+                                    ),
                                   ),
                                 ),
                               ),
