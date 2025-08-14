@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'discover_matches_screen2.dart';
 
 class SwipeLeftScreen extends StatelessWidget {
   const SwipeLeftScreen({super.key});
@@ -242,26 +243,38 @@ class SwipeLeftScreen extends StatelessWidget {
               ),
             ),
 
-            // Bottom Bar
-            Container(
-              height: 80,
-              decoration: BoxDecoration(
-                color: const Color(0xFF8B5E3C),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  Icon(Icons.phone, color: Colors.white, size: 26),
-                  Icon(
-                    Icons.chat_bubble_outline,
-                    color: Colors.white,
-                    size: 26,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DiscoverMatchesScreen2(),
                   ),
-                  Icon(Icons.person_outline, color: Colors.white, size: 26),
-                  Icon(Icons.share, color: Colors.white, size: 26),
-                ],
+                );
+              }, // Bottom Bar
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF8B5E3C),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 12,
+                  horizontal: 20,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Icon(Icons.phone, color: Colors.white, size: 26),
+                    Icon(
+                      Icons.chat_bubble_outline,
+                      color: Colors.white,
+                      size: 26,
+                    ),
+                    Icon(Icons.person_outline, color: Colors.white, size: 26),
+                    Icon(Icons.share, color: Colors.white, size: 26),
+                  ],
+                ),
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/discover_matches_screen2.dart';
 import 'screens/quick_view_screen.dart';
 import 'screens/discover_matches_screen.dart';
 import 'screens/membership_screen.dart';
@@ -76,6 +77,8 @@ class NikkahPlus2App extends StatelessWidget {
         '/quick_view_screen': (context) => QuickViewScreen(),
         '/swipe_right_screen': (context) => const SwipeRightScreen(),
         '/swipe_left_screen': (context) => const SwipeLeftScreen(),
+        '/discover_matches_screen2': (context) =>
+            const DiscoverMatchesScreen2(),
       },
     );
   }
