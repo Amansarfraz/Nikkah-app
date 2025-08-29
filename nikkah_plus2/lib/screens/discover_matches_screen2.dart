@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'family_panel_screen.dart';
 
 class DiscoverMatchesScreen2 extends StatelessWidget {
   const DiscoverMatchesScreen2({super.key});
@@ -165,7 +166,14 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FamilyPanelScreen(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xffb08a63),
                   minimumSize: const Size(double.infinity, 45),

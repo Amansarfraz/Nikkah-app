@@ -29,6 +29,7 @@ import 'screens/interests_personality_page.dart';
 import 'screens/home_screen.dart';
 import 'screens/swipe_right_screen.dart';
 import 'screens/swipe_left_screen.dart';
+import 'screens/family_panel_screen.dart';
 
 void main() {
   runApp(const NikkahPlus2App());
@@ -79,6 +80,7 @@ class NikkahPlus2App extends StatelessWidget {
         '/swipe_left_screen': (context) => const SwipeLeftScreen(),
         '/discover_matches_screen2': (context) =>
             const DiscoverMatchesScreen2(),
+        '/family_panel_screen': (context) => const FamilyPanelScreen(),
       },
     );
   }
