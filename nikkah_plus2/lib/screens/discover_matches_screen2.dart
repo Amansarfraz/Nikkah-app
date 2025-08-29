@@ -97,7 +97,7 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Image.asset(
-                              'assets/images/photo boy.png',
+                              'C',
                               width: 150, // bigger size
                               height: 200, // bigger size
                               fit: BoxFit.cover,
