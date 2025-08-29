@@ -19,12 +19,12 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
               ),
             ),
 
-            // Upgrade Card
+            // Upgrade Card (dark green background + white text)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: const Color(0xffe4f7f4),
+                  color: const Color(0xff006d5b), // Dark green background
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: ListTile(
@@ -36,16 +36,16 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                     "Upgrade to Nika7 Gold",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xff006d5b),
+                      color: Colors.white, // white text
                     ),
                   ),
                   subtitle: Text(
                     "See who likes you & unlock premium features",
-                    style: TextStyle(fontSize: 12, color: Colors.black87),
+                    style: TextStyle(fontSize: 12, color: Colors.white),
                   ),
                   trailing: Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xff006d5b),
+                      color: Colors.white, // white button background
                       borderRadius: BorderRadius.circular(8),
                     ),
                     padding: const EdgeInsets.symmetric(
@@ -54,18 +54,22 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                     ),
                     child: Text(
                       "Upgrade",
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: TextStyle(
+                        color: const Color(0xff006d5b), // green text
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
 
-            // Two profile images
+            // Two profile images (bigger size)
             SizedBox(
-              height: 200,
+              height: 250,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
@@ -83,7 +87,7 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                           child: Icon(
                             Icons.favorite,
                             color: Colors.red,
-                            size: 20,
+                            size: 22,
                           ),
                         ),
                         SizedBox(height: 8),
@@ -92,9 +96,9 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Image.asset(
-                              'assets/images/photo boy.png', // <-- Replace with your male image path
-                              width: 120,
-                              height: 160,
+                              'assets/images/photo boy.png',
+                              width: 150, // bigger size
+                              height: 200, // bigger size
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -116,7 +120,7 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                           child: Icon(
                             Icons.favorite,
                             color: Colors.red,
-                            size: 20,
+                            size: 22,
                           ),
                         ),
                         SizedBox(height: 8),
@@ -125,9 +129,9 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Image.asset(
-                              'assets/images/photo girl.png', // <-- Replace with your female image path
-                              width: 120,
-                              height: 160,
+                              'assets/images/photo girl.png',
+                              width: 150, // bigger size
+                              height: 200, // bigger size
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -139,8 +143,7 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
-
+            const SizedBox(height: 40), // moved text further down
             // Match Text
             Text(
               "It's a match, Amina",
@@ -156,7 +159,7 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
               style: TextStyle(fontSize: 13, color: Colors.grey[700]),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
 
             // Say Salaam Button
             Padding(
