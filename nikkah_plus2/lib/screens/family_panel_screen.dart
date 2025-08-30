@@ -266,6 +266,12 @@ class FamilyPanelScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 24),
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FamilyPanelScreen2(),
+                      ),
+                    );
 
               // Bottom bar single button with icons
               Container(
@@ -273,7 +279,14 @@ class FamilyPanelScreen extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.brown[200],
+                   Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MembershipPlansScreen(),
+                      ),
+                    );
                   borderRadius: BorderRadius.circular(30),
+
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -282,6 +295,7 @@ class FamilyPanelScreen extends StatelessWidget {
                     Icon(Icons.people, color: Colors.white),
                     Icon(Icons.calendar_today, color: Colors.white),
                     Icon(Icons.settings, color: Colors.white),
+                    
                   ],
                 ),
               ),
