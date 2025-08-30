@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'family_panel_screen.dart';
+import 'package:nikkah_plus2/screens/family_panel_screen.dart';
 
 class DiscoverMatchesScreen2 extends StatelessWidget {
   const DiscoverMatchesScreen2({super.key});
@@ -97,7 +97,7 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: Image.asset(
-                              'C',
+                              'assets/images/photo boy.png',
                               width: 150, // bigger size
                               height: 200, // bigger size
                               fit: BoxFit.cover,
@@ -170,7 +170,7 @@ class DiscoverMatchesScreen2 extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const FamilyPanelScreen(),
+                      builder: (context) => FamilyPanelScreen(),
                     ),
                   );
                 },
