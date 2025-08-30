@@ -59,27 +59,29 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Matches Cards Horizontal List
-              SizedBox(
-                height: 250,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    MatchCard(
-                      name: 'Ahmed, 28',
-                      profession: 'Software Engineer',
-                      status: 'Practicing • Family oriented',
-                      percentage: 32,
-                      image: 'assets/images/match1.png',
-                    ),
-                    const SizedBox(width: 12),
-                    MatchCard(
-                      name: 'Fatima, 24',
-                      profession: 'Doctor',
-                      status: 'Hafiza • Family Oriented',
-                      percentage: 60,
-                      image: 'assets/images/match2.png',
-                    ),
-                  ],
+              SingleChildScrollView(
+                child: SizedBox(
+                  height: 250,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      MatchCard(
+                        name: 'Ahmed, 28',
+                        profession: 'Software Engineer',
+                        status: 'Practicing • Family oriented',
+                        percentage: 32,
+                        image: 'assets/images/match1.png',
+                      ),
+                      const SizedBox(width: 12),
+                      MatchCard(
+                        name: 'Fatima, 24',
+                        profession: 'Doctor',
+                        status: 'Hafiza • Family Oriented',
+                        percentage: 60,
+                        image: 'assets/images/match2.png',
+                      ),
+                    ],
+                  ),
                 ),
               ),
 
@@ -113,7 +115,7 @@ class HomeScreen extends StatelessWidget {
               Wrap(
                 spacing: 16,
                 runSpacing: 16,
-                children: [
+                children: const [
                   FeatureTile(icon: Icons.help, label: 'Ask the Mufti'),
                   FeatureTile(icon: Icons.group, label: 'Family Panel'),
                   FeatureTile(icon: Icons.calculate, label: 'Mahr Calculator'),
@@ -247,18 +249,31 @@ class MatchCard extends StatelessWidget {
                   children: [
                     const Icon(Icons.circle, size: 10, color: Colors.green),
                     const SizedBox(width: 4),
-                    Text(
-                      name,
-                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    Expanded(
+                      child: Text(
+                        name,
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     const Spacer(),
                     Text('$percentage%'),
                   ],
                 ),
                 const SizedBox(height: 4),
-                Text(profession, style: const TextStyle(color: Colors.grey)),
+                Text(
+                  profession,
+                  style: const TextStyle(color: Colors.grey),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 const SizedBox(height: 4),
-                Text(status, style: const TextStyle(fontSize: 12)),
+                Text(
+                  status,
+                  style: const TextStyle(fontSize: 12),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 const SizedBox(height: 8),
                 SizedBox(
                   width: double.infinity,
