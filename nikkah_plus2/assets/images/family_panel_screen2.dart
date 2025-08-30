@@ -95,17 +95,17 @@ class FamilyPanelScreen2 extends StatelessWidget {
               const SizedBox(height: 12),
 
               familyMemberCard(
-                "assets/images/Profile(3).png",
+                "assets/images/profile_3.png",
                 "Abdullah Khan",
                 "Primary Family Advisor",
               ),
               familyMemberCard(
-                "assets/images/Profile(1).png",
+                "assets/images/profile_1.png",
                 "Amina Khan",
                 "Secondary Family Advisor",
               ),
               familyMemberCard(
-                "assets/images/Profile(2).png",
+                "assets/images/profile_2.png",
                 "Yusuf Khan",
                 "Secondary Family Advisor",
               ),
@@ -122,14 +122,14 @@ class FamilyPanelScreen2 extends StatelessWidget {
               const SizedBox(height: 12),
 
               feedbackBox(
-                "assets/images/Profile(3).png",
+                "assets/images/profile_3.png",
                 "Abdullah Khan",
                 "Father",
                 "From reviewing the profile and our conversations, I feel this individual has good family values. It would be wise to pursue more discussions regarding deeper topics before moving forward.",
               ),
 
               feedbackBox(
-                "assets/images/Profile(1).png",
+                "assets/images/profile_1.png",
                 "Amina Khan",
                 "Mother",
                 "I think he can be established in his career and seems kind-hearted and religious. Let’s keep progressing with family meetings. I would like to have few interactions regarding his long-term goals.",
