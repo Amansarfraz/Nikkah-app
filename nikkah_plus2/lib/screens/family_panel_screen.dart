@@ -1,237 +1,254 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    const MaterialApp(
-      home: FamilyPanelScreen.new(),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
-}
-
 class FamilyPanelScreen extends StatelessWidget {
   const FamilyPanelScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Top bar with back arrow + Family Panel
+              // Top bar with back arrow + title
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.arrow_back, color: Colors.black),
-                  SizedBox(width: 8),
-                  Text(
-                    "Family Panel",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(Icons.arrow_back, color: Colors.black, size: 28),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        "Family Panel",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 28), // keeps title centered
+                ],
+              ),
+              const SizedBox(height: 24),
+
+              // Virtual Meeting section
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Virtual Meeting",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const Divider(color: Colors.black),
+
+              // Virtual Meeting Room
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.brown,
+                    child: Icon(Icons.video_call, color: Colors.black),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Virtual Meeting Room",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          "The Virtual Meeting Room allows you to arrange video calls, chats, and discussions between you, your match, and both families during the Khutuba (engagement) process.",
+                          style: TextStyle(fontSize: 13),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 16),
 
-              // Virtual Meeting Title + Divider + Subtitles
-              Row(
-                children: const [
-                  Text(
-                    "Virtual Meeting",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.brown,
-                    ),
-                  ),
-                ],
-              ),
-              const Divider(color: Colors.brown, thickness: 1),
-              Row(
-                children: const [
-                  Text(
-                    "Family Members",
-                    style: TextStyle(color: Colors.black, fontSize: 14),
-                  ),
-                  SizedBox(width: 12),
-                  Text(
-                    "Shar...",
-                    style: TextStyle(color: Colors.black, fontSize: 14),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 16),
-
-              // Green Info Box
+              // Dark green box with "i"
               Container(
+                height: 61,
                 width: 360,
-                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 9, 49, 11),
-                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.green[900],
+                  borderRadius: BorderRadius.circular(61 / 2),
                 ),
                 child: Row(
                   children: [
-                    Expanded(
-                      child: Text(
-                        "The Virtual Meeting Room allows you to arrange video calls, chats, and discussions between you, your match, and both families during the Khutuba (engagement) process.",
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
+                    const SizedBox(width: 16),
                     Container(
-                      width: 23,
-                      height: 23,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
+                      height: 23.3,
+                      width: 23.3,
+                      decoration: BoxDecoration(
                         shape: BoxShape.circle,
+                        color: Colors.white,
                       ),
                       child: Center(
                         child: Text(
                           "i",
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 16, 54, 18),
                             fontWeight: FontWeight.bold,
+                            color: Colors.green[900],
                           ),
                         ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        "You can schedule meetings, invite specific family members, and control the meeting agenda...",
+                        style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
 
               // Active Meeting
               Row(
                 children: [
-                  Container(
-                    width: 12,
-                    height: 12,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 26, 78, 28),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
+                  CircleAvatar(radius: 6, backgroundColor: Colors.green),
                   const SizedBox(width: 8),
                   const Text(
                     "Active Meeting",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                 ],
-              ),
-              const SizedBox(height: 16),
-              const Text(
-                "Meeting with Ahmed Ibrahim's family...",
-                style: TextStyle(fontSize: 14),
               ),
               const SizedBox(height: 12),
+              const Text(
+                "Meeting with Ahmed Ibrahim's family...",
+                style: TextStyle(fontSize: 13),
+              ),
+              const SizedBox(height: 8),
 
-              // Example image placeholder
+              // Meeting Image
               Container(
-                height: 120,
+                height: 150,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey[400],
                   borderRadius: BorderRadius.circular(12),
+                  color: Colors.grey.shade200,
+                  image: const DecorationImage(
+                    image: AssetImage("assets/images/Participant.png"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                child: const Center(child: Text("Image Placeholder")),
               ),
 
               const SizedBox(height: 16),
 
-              // Bottom circular buttons for meeting actions
+              // Bottom icons
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _circleButton(Icons.chat, Colors.lightBlue),
-                  _circleButton(Icons.notifications, Colors.orange),
-                  _circleButton(Icons.mic, const Color.fromARGB(255, 6, 85, 9)),
-                  _circleButton(Icons.videocam, Colors.purple),
+                  _circleButton(Icons.chat),
+                  _circleButton(Icons.notifications),
+                  _circleButton(Icons.mic),
+                  _circleButton(Icons.videocam),
                   _circleButton(
                     Icons.call_end,
-                    const Color.fromARGB(255, 141, 20, 12),
+                    bgColor: const Color.fromARGB(255, 236, 230, 230),
                   ),
                 ],
+              ),
+
+              const SizedBox(height: 20),
+
+              // Join Call button
+              Container(
+                height: 45,
+                width: 184,
+                decoration: BoxDecoration(
+                  color: Colors.brown,
+                  borderRadius: BorderRadius.circular(45 / 2),
+                ),
+                child: Center(
+                  child: Text(
+                    "Join Call",
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                ),
               ),
 
               const SizedBox(height: 24),
 
-              // Join Call Button
-              SizedBox(
-                width: 184,
-                height: 45,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.brown,
-                    shape: const StadiumBorder(),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    "Join Call",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 32),
-
               // Scheduled Meetings
-              const Text(
-                "Scheduled Meetings",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Scheduled Meetings",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 16),
 
-              // Scheduled Meeting Box
-              _meetingBox(
+              // Example scheduled meeting card
+              _scheduledMeetingCard(
                 title: "Khutuba Discussion with Omar's Family",
                 subtitle: "Tomorrow, 7:00 PM\n6 participants",
               ),
+
               const SizedBox(height: 24),
-              _meetingBox(
+
+              _scheduledMeetingCard(
                 title: "Mahr Discussion with Ahmed's Family",
                 subtitle: "Saturday, 7:00 PM\n6 participants",
               ),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
 
-              // Meeting Templates Section
-              const Text(
-                "Meeting Templates",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+              // Meeting Templates
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Meeting Templates",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 16),
 
-              _templateBox(
+              _templateCard(
                 title: "Initial Family Introduction",
                 desc:
-                    "A structured meeting to introduce both families and discuss initial compatibility.",
+                    "A structured meeting to introduce both families and discuss initial compatibility....",
               ),
               const SizedBox(height: 24),
-              _templateBox(
+              _templateCard(
                 title: "Khutuba (Engagement) Ceremony",
                 desc:
-                    "A structured meeting to introduce both families and discuss initial compatibility.",
+                    "A structured meeting to introduce both families and discuss initial compatibility....",
               ),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
+
+              // Bottom bar with 4 buttons
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _circleButton(Icons.home, bgColor: Colors.brown[200]),
+                  _circleButton(Icons.people, bgColor: Colors.brown[200]),
+                  _circleButton(
+                    Icons.calendar_today,
+                    bgColor: Colors.brown[200],
+                  ),
+                  _circleButton(Icons.settings, bgColor: Colors.brown[200]),
+                ],
+              ),
             ],
           ),
         ),
@@ -239,157 +256,148 @@ class FamilyPanelScreen extends StatelessWidget {
     );
   }
 
-  // reusable small button
-  Widget _circleButton(IconData icon, Color color) {
+  // Helper for circular buttons
+  Widget _circleButton(IconData icon, {Color? bgColor}) {
     return Container(
-      width: 50,
-      height: 50,
+      height: 40,
+      width: 40,
       decoration: BoxDecoration(
-        color: color.withOpacity(0.7),
         shape: BoxShape.circle,
+        color: bgColor ?? Colors.white,
+        border: Border.all(color: Colors.black),
       ),
-      child: Icon(icon, color: Colors.white, size: 28),
+      child: Icon(icon, color: Colors.black, size: 20),
     );
   }
 
-  // meeting schedule box
-  Widget _meetingBox({required String title, required String subtitle}) {
+  // Scheduled Meeting Card
+  Widget _scheduledMeetingCard({
+    required String title,
+    required String subtitle,
+  }) {
     return Container(
       width: 364,
+      height: 306,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 4)],
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: Colors.grey.shade400),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: const BoxDecoration(
-                  color: Colors.brown,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.access_time, color: Colors.black),
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.brown,
+                child: Icon(Icons.access_time, color: Colors.black),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
               ),
-              const SizedBox(width: 8),
-              const Icon(
+              _circleButton(
                 Icons.edit,
-                color: Color.fromARGB(255, 7, 102, 10),
-                size: 24,
+                bgColor: const Color.fromARGB(255, 239, 241, 239),
               ),
               const SizedBox(width: 8),
-              const Icon(
+              _circleButton(
                 Icons.delete,
-                color: Color.fromARGB(255, 194, 31, 19),
-                size: 24,
+                bgColor: const Color.fromARGB(255, 221, 217, 217),
               ),
             ],
           ),
           const SizedBox(height: 12),
-          Text(subtitle, style: const TextStyle(fontSize: 13)),
-          const SizedBox(height: 16),
-          SizedBox(
-            width: 294,
-            height: 70,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.brown,
-                shape: const StadiumBorder(),
+          Text(subtitle, style: TextStyle(fontSize: 12)),
+          const Spacer(),
+          Column(
+            children: [
+              Container(
+                height: 70,
+                width: 294,
+                decoration: BoxDecoration(
+                  color: Colors.brown,
+                  borderRadius: BorderRadius.circular(70 / 2),
+                ),
+                child: Center(
+                  child: Text(
+                    "Start Now",
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                ),
               ),
-              onPressed: () {},
-              child: const Text(
-                "Start Now",
-                style: TextStyle(color: Colors.white, fontSize: 16),
+              const SizedBox(height: 12),
+              Container(
+                height: 70,
+                width: 294,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.brown),
+                  borderRadius: BorderRadius.circular(70 / 2),
+                ),
+                child: Center(
+                  child: Text(
+                    "Invite More",
+                    style: TextStyle(color: Colors.brown, fontSize: 14),
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SizedBox(height: 12),
-          SizedBox(
-            width: 294,
-            height: 70,
-            child: OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Colors.brown),
-                shape: const StadiumBorder(),
-              ),
-              onPressed: () {},
-              child: const Text(
-                "Invite More",
-                style: TextStyle(color: Colors.brown, fontSize: 16),
-              ),
-            ),
+            ],
           ),
         ],
       ),
     );
   }
 
-  // template box
-  Widget _templateBox({required String title, required String desc}) {
+  // Template Card
+  Widget _templateCard({required String title, required String desc}) {
     return Container(
       width: 361,
+      height: 199,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 4)],
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: Colors.grey.shade400),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: const BoxDecoration(
-                  color: Colors.brown,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.person, color: Colors.black),
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.brown,
+                child: Icon(Icons.person, color: Colors.black),
               ),
-              const SizedBox(width: 8),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 12),
-          Text(desc, style: const TextStyle(fontSize: 13)),
-          const SizedBox(height: 16),
-          Center(
-            child: SizedBox(
-              width: 185,
-              height: 45,
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: Colors.brown),
-                  shape: const StadiumBorder(),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  "Use Template",
-                  style: TextStyle(color: Colors.brown),
-                ),
+          Text(desc, style: TextStyle(fontSize: 12)),
+          const Spacer(),
+          Container(
+            height: 45,
+            width: 185,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(45 / 2),
+              border: Border.all(color: Colors.brown),
+            ),
+            child: Center(
+              child: Text(
+                "Use Template",
+                style: TextStyle(color: Colors.brown, fontSize: 14),
               ),
             ),
           ),
