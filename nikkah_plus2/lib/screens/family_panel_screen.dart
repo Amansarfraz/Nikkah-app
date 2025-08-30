@@ -17,32 +17,47 @@ class FamilyPanelScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Icon(Icons.arrow_back, color: Colors.black, size: 28),
+                  const Icon(Icons.arrow_back, color: Colors.black, size: 28),
                   Expanded(
                     child: Center(
                       child: Text(
                         "Family Panel",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(width: 28), // keeps title centered
+                  const SizedBox(width: 28), // keeps title centered
                 ],
               ),
               const SizedBox(height: 24),
 
               // Virtual Meeting section
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Virtual Meeting",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+              Row(
+                children: [
+                  Text(
+                    "Virtual Meeting",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.brown,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Text(
+                    "Family Members",
+                    style: TextStyle(fontSize: 14, color: Colors.black),
+                  ),
+                  const SizedBox(width: 8),
+                  const Text(
+                    "Shar...",
+                    style: TextStyle(fontSize: 14, color: Colors.black),
+                  ),
+                ],
               ),
-              const Divider(color: Colors.black),
+              Divider(color: Colors.brown),
 
               // Virtual Meeting Room
               Row(
@@ -51,13 +66,13 @@ class FamilyPanelScreen extends StatelessWidget {
                   CircleAvatar(
                     radius: 20,
                     backgroundColor: Colors.brown,
-                    child: Icon(Icons.video_call, color: Colors.black),
+                    child: const Icon(Icons.video_call, color: Colors.black),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           "Virtual Meeting Room",
                           style: TextStyle(
@@ -65,7 +80,7 @@ class FamilyPanelScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8),
                         Text(
                           "The Virtual Meeting Room allows you to arrange video calls, chats, and discussions between you, your match, and both families during the Khutuba (engagement) process.",
                           style: TextStyle(fontSize: 13),
@@ -77,21 +92,21 @@ class FamilyPanelScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Dark green box with "i"
+              // Dark green square box with "i"
               Container(
-                height: 61,
-                width: 360,
+                height: 80,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.green[900],
-                  borderRadius: BorderRadius.circular(61 / 2),
+                  borderRadius: BorderRadius.circular(16),
                 ),
+                padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
-                    const SizedBox(width: 16),
                     Container(
                       height: 23.3,
                       width: 23.3,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
@@ -109,7 +124,10 @@ class FamilyPanelScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         "You can schedule meetings, invite specific family members, and control the meeting agenda...",
-                        style: TextStyle(color: Colors.white, fontSize: 12),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ],
@@ -120,10 +138,10 @@ class FamilyPanelScreen extends StatelessWidget {
 
               // Active Meeting
               Row(
-                children: [
+                children: const [
                   CircleAvatar(radius: 6, backgroundColor: Colors.green),
-                  const SizedBox(width: 8),
-                  const Text(
+                  SizedBox(width: 8),
+                  Text(
                     "Active Meeting",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
@@ -160,9 +178,15 @@ class FamilyPanelScreen extends StatelessWidget {
                   _circleButton(Icons.notifications),
                   _circleButton(Icons.mic),
                   _circleButton(Icons.videocam),
-                  _circleButton(
-                    Icons.call_end,
-                    bgColor: const Color.fromARGB(255, 236, 230, 230),
+                  // Call End Dark Red
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.red, // dark red
+                    ),
+                    child: const Icon(Icons.call_end, color: Colors.white),
                   ),
                 ],
               ),
@@ -177,7 +201,7 @@ class FamilyPanelScreen extends StatelessWidget {
                   color: Colors.brown,
                   borderRadius: BorderRadius.circular(45 / 2),
                 ),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "Join Call",
                     style: TextStyle(color: Colors.white, fontSize: 14),
@@ -190,14 +214,13 @@ class FamilyPanelScreen extends StatelessWidget {
               // Scheduled Meetings
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
+                child: const Text(
                   "Scheduled Meetings",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 16),
 
-              // Example scheduled meeting card
               _scheduledMeetingCard(
                 title: "Khutuba Discussion with Omar's Family",
                 subtitle: "Tomorrow, 7:00 PM\n6 participants",
@@ -215,7 +238,7 @@ class FamilyPanelScreen extends StatelessWidget {
               // Meeting Templates
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
+                child: const Text(
                   "Meeting Templates",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
@@ -236,18 +259,23 @@ class FamilyPanelScreen extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // Bottom bar with 4 buttons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _circleButton(Icons.home, bgColor: Colors.brown[200]),
-                  _circleButton(Icons.people, bgColor: Colors.brown[200]),
-                  _circleButton(
-                    Icons.calendar_today,
-                    bgColor: Colors.brown[200],
-                  ),
-                  _circleButton(Icons.settings, bgColor: Colors.brown[200]),
-                ],
+              // Bottom bar single button with icons
+              Container(
+                height: 60,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.brown[200],
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Icon(Icons.home, color: Colors.white),
+                    Icon(Icons.people, color: Colors.white),
+                    Icon(Icons.calendar_today, color: Colors.white),
+                    Icon(Icons.settings, color: Colors.white),
+                  ],
+                ),
               ),
             ],
           ),
@@ -257,13 +285,13 @@ class FamilyPanelScreen extends StatelessWidget {
   }
 
   // Helper for circular buttons
-  Widget _circleButton(IconData icon, {Color? bgColor}) {
+  Widget _circleButton(IconData icon) {
     return Container(
       height: 40,
       width: 40,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: bgColor ?? Colors.white,
+        color: Colors.white,
         border: Border.all(color: Colors.black),
       ),
       child: Icon(icon, color: Colors.black, size: 20),
@@ -292,28 +320,45 @@ class FamilyPanelScreen extends StatelessWidget {
               CircleAvatar(
                 radius: 20,
                 backgroundColor: Colors.brown,
-                child: Icon(Icons.access_time, color: Colors.black),
+                child: const Icon(Icons.access_time, color: Colors.black),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   title,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              _circleButton(
-                Icons.edit,
-                bgColor: const Color.fromARGB(255, 239, 241, 239),
+              // Edit icon
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  border: Border.all(color: Colors.green.shade900),
+                ),
+                child: Icon(Icons.edit, color: Colors.green.shade900),
               ),
               const SizedBox(width: 8),
-              _circleButton(
-                Icons.delete,
-                bgColor: const Color.fromARGB(255, 221, 217, 217),
+              // Delete icon
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  border: Border.all(color: Colors.red.shade900),
+                ),
+                child: Icon(Icons.delete, color: Colors.red.shade900),
               ),
             ],
           ),
           const SizedBox(height: 12),
-          Text(subtitle, style: TextStyle(fontSize: 12)),
+          Text(subtitle, style: const TextStyle(fontSize: 12)),
           const Spacer(),
           Column(
             children: [
@@ -324,7 +369,7 @@ class FamilyPanelScreen extends StatelessWidget {
                   color: Colors.brown,
                   borderRadius: BorderRadius.circular(70 / 2),
                 ),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "Start Now",
                     style: TextStyle(color: Colors.white, fontSize: 14),
@@ -332,18 +377,20 @@ class FamilyPanelScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12),
-              Container(
-                height: 70,
-                width: 294,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.brown),
-                  borderRadius: BorderRadius.circular(70 / 2),
-                ),
-                child: Center(
-                  child: Text(
-                    "Invite More",
-                    style: TextStyle(color: Colors.brown, fontSize: 14),
+              Center(
+                child: Container(
+                  height: 70,
+                  width: 294,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.brown),
+                    borderRadius: BorderRadius.circular(70 / 2),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Invite More",
+                      style: TextStyle(color: Colors.brown, fontSize: 14),
+                    ),
                   ),
                 ),
               ),
@@ -373,31 +420,36 @@ class FamilyPanelScreen extends StatelessWidget {
               CircleAvatar(
                 radius: 20,
                 backgroundColor: Colors.brown,
-                child: Icon(Icons.person, color: Colors.black),
+                child: const Icon(Icons.person, color: Colors.black),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   title,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 12),
-          Text(desc, style: TextStyle(fontSize: 12)),
+          Text(desc, style: const TextStyle(fontSize: 12)),
           const Spacer(),
-          Container(
-            height: 45,
-            width: 185,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(45 / 2),
-              border: Border.all(color: Colors.brown),
-            ),
-            child: Center(
-              child: Text(
-                "Use Template",
-                style: TextStyle(color: Colors.brown, fontSize: 14),
+          Center(
+            child: Container(
+              height: 45,
+              width: 185,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(45 / 2),
+                border: Border.all(color: Colors.brown),
+              ),
+              child: const Center(
+                child: Text(
+                  "Use Template",
+                  style: TextStyle(color: Colors.brown, fontSize: 14),
+                ),
               ),
             ),
           ),
