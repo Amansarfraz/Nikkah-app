@@ -75,7 +75,7 @@ class FamilyPanelScreen extends StatelessWidget {
                 width: 360,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.green[800],
+                  color: const Color.fromARGB(255, 9, 49, 11),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
@@ -98,7 +98,7 @@ class FamilyPanelScreen extends StatelessWidget {
                         child: Text(
                           "i",
                           style: TextStyle(
-                            color: Colors.green[800],
+                            color: const Color.fromARGB(255, 16, 54, 18),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -117,7 +117,7 @@ class FamilyPanelScreen extends StatelessWidget {
                     width: 12,
                     height: 12,
                     decoration: const BoxDecoration(
-                      color: Colors.green,
+                      color: Color.fromARGB(255, 26, 78, 28),
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -154,9 +154,12 @@ class FamilyPanelScreen extends StatelessWidget {
                 children: [
                   _circleButton(Icons.chat, Colors.lightBlue),
                   _circleButton(Icons.notifications, Colors.orange),
-                  _circleButton(Icons.mic, Colors.green),
+                  _circleButton(Icons.mic, const Color.fromARGB(255, 6, 85, 9)),
                   _circleButton(Icons.videocam, Colors.purple),
-                  _circleButton(Icons.call_end, Colors.red),
+                  _circleButton(
+                    Icons.call_end,
+                    const Color.fromARGB(255, 141, 20, 12),
+                  ),
                 ],
               ),
 
@@ -284,9 +287,17 @@ class FamilyPanelScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              const Icon(Icons.edit, color: Colors.green, size: 24),
+              const Icon(
+                Icons.edit,
+                color: Color.fromARGB(255, 7, 102, 10),
+                size: 24,
+              ),
               const SizedBox(width: 8),
-              const Icon(Icons.delete, color: Colors.red, size: 24),
+              const Icon(
+                Icons.delete,
+                color: Color.fromARGB(255, 194, 31, 19),
+                size: 24,
+              ),
             ],
           ),
           const SizedBox(height: 12),
