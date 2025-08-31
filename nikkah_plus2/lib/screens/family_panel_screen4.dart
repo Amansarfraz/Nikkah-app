@@ -10,8 +10,8 @@ class FamilyPanelScreen4 extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Icon(Icons.arrow_back, color: Colors.black),
-        title: Text(
+        leading: const Icon(Icons.arrow_back, color: Colors.black),
+        title: const Text(
           "Family Panel",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
@@ -37,7 +37,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
                   const SizedBox(width: 20),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         "Linked Profiles",
                         style: TextStyle(
                           fontSize: 16,
@@ -89,7 +89,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Expanded(
+                    const Expanded(
                       child: Text(
                         "You can sync your account with your guardians profiles to help them in their marriage search journey.",
                         style: TextStyle(color: Colors.white, fontSize: 13),
@@ -102,7 +102,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Your Linked Profiles Title
-              Text(
+              const Text(
                 "Your Linked Profiles",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
@@ -149,7 +149,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           "Profile Management",
                           style: TextStyle(
@@ -167,7 +167,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    Text(
+                    const Text(
                       "Default Privacy Settings",
                       style: TextStyle(
                         fontSize: 14,
@@ -182,23 +182,41 @@ class FamilyPanelScreen4 extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 60),
+              const SizedBox(height: 100),
             ],
           ),
         ),
       ),
 
-      // Bottom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.brown,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
-        ],
+      // Floating Bottom Navigation Bar
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 8,
+              spreadRadius: 2,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.brown,
+            unselectedItemColor: Colors.grey,
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.people), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -238,7 +256,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
                   children: [
                     Text(
                       name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                       ),
@@ -268,14 +286,14 @@ class FamilyPanelScreen4 extends StatelessWidget {
           ),
 
           const SizedBox(height: 12),
-          Text(
+          const Text(
             "Recent Activity",
             style: TextStyle(fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: 6),
           Row(
             children: [
-              Icon(Icons.brightness_1, size: 6, color: Colors.black),
+              const Icon(Icons.brightness_1, size: 6, color: Colors.black),
               const SizedBox(width: 6),
               Expanded(
                 child: Text(
@@ -288,7 +306,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
           const SizedBox(height: 4),
           Row(
             children: [
-              Icon(Icons.brightness_1, size: 6, color: Colors.black),
+              const Icon(Icons.brightness_1, size: 6, color: Colors.black),
               const SizedBox(width: 6),
               Expanded(
                 child: Text(
@@ -303,41 +321,38 @@ class FamilyPanelScreen4 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Brown match box
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.brown,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "$match Marriage Match",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
+              // Marriage Match Box
+              Container(
+                height: 59.9,
+                width: 128.7,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF0FDFA),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Center(
+                  child: Text(
+                    "$match Marriage Match",
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
-              // Purple active matches box
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.purple.shade100,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "$active Active Matches",
-                      style: TextStyle(
-                        color: Colors.purple.shade700,
-                        fontWeight: FontWeight.w600,
-                      ),
+              // Active Matches Box
+              Container(
+                height: 59.9,
+                width: 128.7,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEEF2FF),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Center(
+                  child: Text(
+                    "$active Active Matches",
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -346,7 +361,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
           ),
 
           const SizedBox(height: 12),
-          Center(
+          const Center(
             child: Text(
               "View All",
               style: TextStyle(color: Colors.teal, fontWeight: FontWeight.w600),
@@ -358,12 +373,17 @@ class FamilyPanelScreen4 extends StatelessWidget {
   }
 
   // Switch Tile
-  Widget switchTile(String text) {
+  static Widget switchTile(String text) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(text, style: TextStyle(fontSize: 14)),
-        Switch(value: true, onChanged: (val) {}),
+        Text(text, style: const TextStyle(fontSize: 14)),
+        Switch(
+          value: true,
+          onChanged: (val) {},
+          activeColor: Colors.white,
+          activeTrackColor: Colors.green.shade800,
+        ),
       ],
     );
   }
