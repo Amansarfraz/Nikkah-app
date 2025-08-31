@@ -47,6 +47,10 @@ class FamilyPanelScreen3 extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 6),
+
+            // Brown line below Shared Conversations
+            Container(height: 3, width: 180, color: Colors.brown[700]),
             const SizedBox(height: 16),
 
             // Header row
@@ -115,7 +119,7 @@ class FamilyPanelScreen3 extends StatelessWidget {
                 Text(
                   "Edit",
                   style: TextStyle(
-                    color: const Color.fromARGB(255, 5, 68, 8),
+                    color: Color.fromARGB(255, 5, 68, 8),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -132,16 +136,25 @@ class FamilyPanelScreen3 extends StatelessWidget {
         ),
       ),
 
-      // Bottom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 126, 76, 3),
-        type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
-        ],
+      // Floating Bottom Navigation Bar
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 12.0, left: 16, right: 16),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          decoration: BoxDecoration(
+            color: Colors.brown[200], // light brown
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: const [
+              Icon(Icons.home, color: Colors.white),
+              Icon(Icons.people, color: Colors.white),
+              Icon(Icons.chat, color: Colors.white),
+              Icon(Icons.settings, color: Colors.white),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -228,6 +241,42 @@ class FamilyPanelScreen3 extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
+                const SizedBox(height: 8),
+
+                // Action Buttons
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.brown[700],
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                        ),
+                        child: const Text("View"),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.brown[700],
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                        ),
+                        child: const Text("Message"),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -242,7 +291,10 @@ class FamilyPanelScreen3 extends StatelessWidget {
       value: isActive,
       onChanged: (_) {},
       title: Text(text, style: const TextStyle(fontSize: 14)),
-      activeColor: Colors.brown[700],
+      activeColor: Colors.white, // thumb color
+      activeTrackColor: Colors.green[900], // dark green track
+      inactiveThumbColor: Colors.white,
+      inactiveTrackColor: Colors.grey[400],
     );
   }
 }
