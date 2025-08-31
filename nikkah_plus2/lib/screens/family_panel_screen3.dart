@@ -258,8 +258,13 @@ class FamilyPanelScreen3 extends StatelessWidget {
       value: isActive,
       onChanged: (_) {},
       title: Text(text, style: const TextStyle(fontSize: 14)),
-      activeColor: Colors.green[900], // Dark green active color
-      activeTrackColor: Colors.green[700], // Dark green track
+      activeColor: Colors.white, // Dark green active color
+      activeTrackColor: const Color.fromARGB(
+        255,
+        28,
+        61,
+        29,
+      ), // Dark green track
     );
   }
 }
