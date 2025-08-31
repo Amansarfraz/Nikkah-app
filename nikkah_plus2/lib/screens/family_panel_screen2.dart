@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'family_panel_screen3.dart';
 
 class FamilyPanelScreen2 extends StatelessWidget {
   const FamilyPanelScreen2({super.key});
@@ -153,6 +154,7 @@ class FamilyPanelScreen2 extends StatelessWidget {
               const SizedBox(height: 12),
 
               feedbackBox(
+                context,
                 "assets/images/Profile (3).png",
                 "Abdullah Khan",
                 "Father",
@@ -160,6 +162,7 @@ class FamilyPanelScreen2 extends StatelessWidget {
               ),
 
               feedbackBox(
+                context,
                 "assets/images/Profile (1).png",
                 "Amina Khan",
                 "Mother",
@@ -181,7 +184,7 @@ class FamilyPanelScreen2 extends StatelessWidget {
     );
   }
 
-  // Family Member Card Widget (buttons in next row)
+  // Family Member Card Widget
   static Widget familyMemberCard(String image, String name, String role) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -254,8 +257,9 @@ class FamilyPanelScreen2 extends StatelessWidget {
     );
   }
 
-  // Feedback Box Widget
+  // Feedback Box Widget (with context)
   static Widget feedbackBox(
+    BuildContext context,
     String image,
     String name,
     String relation,
@@ -300,7 +304,14 @@ class FamilyPanelScreen2 extends StatelessWidget {
           const SizedBox(height: 8),
           Center(
             child: OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FamilyPanelScreen3(),
+                  ),
+                );
+              },
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: Colors.grey),
                 shape: RoundedRectangleBorder(
