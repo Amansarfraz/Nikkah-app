@@ -43,7 +43,7 @@ class FamilyPanelScreen3 extends StatelessWidget {
                 const SizedBox(width: 20),
                 const Text(
                   "Linked Profiles",
-                  style: TextStyle(color: Colors.grey, fontSize: 16),
+                  style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ],
             ),
@@ -115,7 +115,7 @@ class FamilyPanelScreen3 extends StatelessWidget {
                 Text(
                   "Edit",
                   style: TextStyle(
-                    color: Colors.brown[700],
+                    color: const Color.fromARGB(255, 5, 68, 8),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -134,7 +134,7 @@ class FamilyPanelScreen3 extends StatelessWidget {
 
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFFEBDCC5),
+        backgroundColor: const Color.fromARGB(255, 126, 76, 3),
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
@@ -208,7 +208,7 @@ class FamilyPanelScreen3 extends StatelessWidget {
                       child: Text(
                         match,
                         style: const TextStyle(
-                          color: Colors.green,
+                          color: Colors.brown,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
