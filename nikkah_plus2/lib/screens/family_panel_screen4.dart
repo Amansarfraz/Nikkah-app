@@ -192,7 +192,7 @@ class FamilyPanelScreen4 extends StatelessWidget {
       bottomNavigationBar: Container(
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color(0xFFD7CCC8), // light brown
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
@@ -206,9 +206,10 @@ class FamilyPanelScreen4 extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: BottomNavigationBar(
+            backgroundColor: const Color(0xFFD7CCC8), // light brown
             type: BottomNavigationBarType.fixed,
             selectedItemColor: Colors.brown,
-            unselectedItemColor: Colors.grey,
+            unselectedItemColor: Colors.grey[700],
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.people), label: ""),
@@ -274,12 +275,15 @@ class FamilyPanelScreen4 extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.green.shade100,
+                  color: Colors.green.shade800, // Dark green
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Text(
+                child: const Text(
                   "Active",
-                  style: TextStyle(color: Colors.green.shade800, fontSize: 12),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ), // White text
                 ),
               ),
             ],
@@ -318,13 +322,13 @@ class FamilyPanelScreen4 extends StatelessWidget {
           ),
 
           const SizedBox(height: 12),
+          // Boxes closer together (3 column spacing)
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              // Marriage Match Box
               Container(
-                height: 59.9,
-                width: 128.7,
+                height: 60,
+                width: 120,
                 decoration: BoxDecoration(
                   color: const Color(0xFFF0FDFA),
                   borderRadius: BorderRadius.circular(8),
@@ -339,10 +343,9 @@ class FamilyPanelScreen4 extends StatelessWidget {
                   ),
                 ),
               ),
-              // Active Matches Box
               Container(
-                height: 59.9,
-                width: 128.7,
+                height: 60,
+                width: 120,
                 decoration: BoxDecoration(
                   color: const Color(0xFFEEF2FF),
                   borderRadius: BorderRadius.circular(8),
