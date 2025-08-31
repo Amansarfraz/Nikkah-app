@@ -47,10 +47,15 @@ class FamilyPanelScreen3 extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 6),
 
-            // Brown line below Shared Conversations
-            Container(height: 3, width: 180, color: Colors.brown[700]),
+            // Brown line under "Shared Conversations"
+            Container(
+              margin: const EdgeInsets.only(top: 4),
+              height: 3,
+              width: 180,
+              color: Colors.brown[700],
+            ),
+
             const SizedBox(height: 16),
 
             // Header row
@@ -119,7 +124,7 @@ class FamilyPanelScreen3 extends StatelessWidget {
                 Text(
                   "Edit",
                   style: TextStyle(
-                    color: Color.fromARGB(255, 5, 68, 8),
+                    color: const Color.fromARGB(255, 5, 68, 8),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -136,24 +141,22 @@ class FamilyPanelScreen3 extends StatelessWidget {
         ),
       ),
 
-      // Floating Bottom Navigation Bar
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 12.0, left: 16, right: 16),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          decoration: BoxDecoration(
-            color: Colors.brown[200], // light brown
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
-              Icon(Icons.home, color: Colors.white),
-              Icon(Icons.people, color: Colors.white),
-              Icon(Icons.chat, color: Colors.white),
-              Icon(Icons.settings, color: Colors.white),
-            ],
-          ),
+      // Bottom Navigation Bar
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
+        decoration: BoxDecoration(
+          color: Colors.brown[300],
+          borderRadius: BorderRadius.circular(30),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Icon(Icons.home, color: Colors.white),
+            Icon(Icons.people, color: Colors.white),
+            Icon(Icons.chat, color: Colors.white),
+            Icon(Icons.settings, color: Colors.white),
+          ],
         ),
       ),
     );
@@ -215,13 +218,13 @@ class FamilyPanelScreen3 extends StatelessWidget {
                         vertical: 2,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.green[100],
+                        color: Colors.brown[700],
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
                         match,
                         style: const TextStyle(
-                          color: Colors.brown,
+                          color: Colors.white,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -241,42 +244,6 @@ class FamilyPanelScreen3 extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 8),
-
-                // Action Buttons
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.brown[700],
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                        ),
-                        child: const Text("View"),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.brown[700],
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                        ),
-                        child: const Text("Message"),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
@@ -291,10 +258,8 @@ class FamilyPanelScreen3 extends StatelessWidget {
       value: isActive,
       onChanged: (_) {},
       title: Text(text, style: const TextStyle(fontSize: 14)),
-      activeColor: Colors.white, // thumb color
-      activeTrackColor: Colors.green[900], // dark green track
-      inactiveThumbColor: Colors.white,
-      inactiveTrackColor: Colors.grey[400],
+      activeColor: Colors.green[900], // Dark green active color
+      activeTrackColor: Colors.green[700], // Dark green track
     );
   }
 }
