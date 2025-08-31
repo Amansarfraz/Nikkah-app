@@ -16,12 +16,6 @@ class FamilyPanelScreen2 extends StatelessWidget {
         ),
         centerTitle: true,
         leading: const Icon(Icons.arrow_back, color: Colors.black),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(Icons.share, color: Colors.black),
-          ),
-        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -109,12 +103,15 @@ class FamilyPanelScreen2 extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.green.shade700.withOpacity(0.2),
+                  color: const Color.fromARGB(226, 9, 51, 11).withOpacity(0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Row(
                   children: [
-                    Icon(Icons.verified_user, color: Colors.green),
+                    Icon(
+                      Icons.verified_user,
+                      color: Color.fromARGB(255, 40, 100, 42),
+                    ),
                     SizedBox(width: 8),
                     Expanded(
                       child: Text(
@@ -129,19 +126,19 @@ class FamilyPanelScreen2 extends StatelessWidget {
 
               // Family Members Section
               familyMemberCard(
-                "assets/images/profile(3).png",
+                "assets/images/Profile (3).png",
                 "Abdullah Khan",
-                "Primary Family Advisor",
+                "Father",
               ),
               familyMemberCard(
-                "assets/images/profile(1).png",
+                "assets/images/Profile (1).png",
                 "Amina Khan",
-                "Secondary Family Advisor",
+                "Mother",
               ),
               familyMemberCard(
-                "assets/images/profile(2).png",
+                "assets/images/Profile (2).png",
                 "Yusuf Khan",
-                "Secondary Family Advisor",
+                "Brother",
               ),
 
               const SizedBox(height: 20),
@@ -184,7 +181,7 @@ class FamilyPanelScreen2 extends StatelessWidget {
     );
   }
 
-  // Family Member Card Widget
+  // Family Member Card Widget (buttons in next row)
   static Widget familyMemberCard(String image, String name, String role) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
@@ -200,40 +197,57 @@ class FamilyPanelScreen2 extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(radius: 24, backgroundImage: AssetImage(image)),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              "$name • $role",
-              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.brown.shade300,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+          Row(
+            children: [
+              CircleAvatar(radius: 24, backgroundImage: AssetImage(image)),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  "$name • $role",
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
-            child: const Text("Message", style: TextStyle(color: Colors.white)),
+            ],
           ),
-          const SizedBox(width: 8),
-          OutlinedButton(
-            onPressed: () {},
-            style: OutlinedButton.styleFrom(
-              side: const BorderSide(color: Colors.grey),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.brown.shade300,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: const Text(
+                  "Message",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            child: Text(
-              "Manage Access",
-              style: TextStyle(color: Colors.brown.shade300),
-            ),
+              const SizedBox(width: 8),
+              OutlinedButton(
+                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: Colors.grey),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: Text(
+                  "Manage Access",
+                  style: TextStyle(color: Colors.brown.shade300),
+                ),
+              ),
+            ],
           ),
         ],
       ),
