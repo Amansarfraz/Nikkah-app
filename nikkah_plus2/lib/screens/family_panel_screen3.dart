@@ -144,10 +144,10 @@ class FamilyPanelScreen3 extends StatelessWidget {
             const SizedBox(height: 8),
 
             // Settings List
-            _settingTile("Share new matches with family", true),
-            _settingTile("Allow family to message matches", false),
-            _settingTile("Notify family of new conversations", true),
-            _settingTile("Auto-share serious conversations", true),
+            _settingTile(context, "Share new matches with family", true),
+            _settingTile(context, "Allow family to message matches", false),
+            _settingTile(context, "Notify family of new conversations", true),
+            _settingTile(context, "Auto-share serious conversations", true),
           ],
         ),
       ),
@@ -263,11 +263,16 @@ class FamilyPanelScreen3 extends StatelessWidget {
     );
   }
 
-  Widget _settingTile(String text, bool isActive) {
+  Widget _settingTile(BuildContext context, String text, bool isActive) {
     return SwitchListTile(
       contentPadding: EdgeInsets.zero,
       value: isActive,
-      onChanged: (_) {},
+      onChanged: (_) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const FamilyPanelScreen4()),
+        );
+      },
       title: Text(text, style: const TextStyle(fontSize: 14)),
       activeColor: Colors.white,
       activeTrackColor: const Color.fromARGB(255, 28, 61, 29),
