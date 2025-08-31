@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'family_panel_screen4.dart';
 
 class FamilyPanelScreen3 extends StatelessWidget {
   const FamilyPanelScreen3({super.key});
@@ -121,11 +122,21 @@ class FamilyPanelScreen3 extends StatelessWidget {
                   "Default Sharing Settings",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
-                Text(
-                  "Edit",
-                  style: TextStyle(
-                    color: const Color.fromARGB(255, 5, 68, 8),
-                    fontWeight: FontWeight.w600,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FamilyPanelScreen4(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Edit",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 5, 68, 8),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ],
@@ -258,13 +269,8 @@ class FamilyPanelScreen3 extends StatelessWidget {
       value: isActive,
       onChanged: (_) {},
       title: Text(text, style: const TextStyle(fontSize: 14)),
-      activeColor: Colors.white, // Dark green active color
-      activeTrackColor: const Color.fromARGB(
-        255,
-        28,
-        61,
-        29,
-      ), // Dark green track
+      activeColor: Colors.white,
+      activeTrackColor: const Color.fromARGB(255, 28, 61, 29),
     );
   }
 }
