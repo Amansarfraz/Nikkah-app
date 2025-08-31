@@ -29,43 +29,87 @@ class FamilyPanelScreen2 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Top Brown Circle with image
               Row(
                 children: [
-                  const CircleAvatar(
-                    backgroundImage: AssetImage("assets/images/Vector.png"),
+                  Container(
+                    width: 38.79,
+                    height: 38.79,
+                    decoration: const BoxDecoration(
+                      color: Colors.brown,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        "assets/images/Vector.png",
+                        width: 23.99,
+                        height: 23.99,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   ),
                   const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "Family Involvement",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          "Invite family members to guide your marriage journey",
-                          style: TextStyle(color: Colors.grey, fontSize: 13),
-                        ),
-                      ],
+                  const Expanded(
+                    child: Text(
+                      "Family Involvement",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 12),
-              const Text(
-                "The Family Panel allows your family members to participate in your marriage process, providing guidance and support to ensure the right decisions.",
-                style: TextStyle(fontSize: 13, color: Colors.black87),
+
+              // Row with 3 Tabs
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Expanded(
+                    child: Text(
+                      "Virtual Meetings",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        const Text(
+                          "Family Members",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.brown,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 4),
+                        Container(height: 2, color: Colors.brown),
+                      ],
+                    ),
+                  ),
+                  const Expanded(
+                    child: Text(
+                      "Shared Conver...",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 16),
+
+              // Dark Green Info Box
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.green.shade100,
+                  color: Colors.green.shade700.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Row(
@@ -84,16 +128,6 @@ class FamilyPanelScreen2 extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Family Members Section
-              const Text(
-                "Your Family Members",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 12),
-
               familyMemberCard(
                 "assets/images/profile(3).png",
                 "Abdullah Khan",
@@ -129,7 +163,7 @@ class FamilyPanelScreen2 extends StatelessWidget {
               ),
 
               feedbackBox(
-                "assets/images/profile_1.png",
+                "assets/images/profile(1).png",
                 "Amina Khan",
                 "Mother",
                 "I think he can be established in his career and seems kind-hearted and religious. Let’s keep progressing with family meetings. I would like to have few interactions regarding his long-term goals.",
@@ -171,32 +205,21 @@ class FamilyPanelScreen2 extends StatelessWidget {
           CircleAvatar(radius: 24, backgroundImage: AssetImage(image)),
           const SizedBox(width: 12),
           Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  role,
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
-                ),
-              ],
+            child: Text(
+              "$name • $role",
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.brown,
+              backgroundColor: Colors.brown.shade300,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            child: const Text("Message"),
+            child: const Text("Message", style: TextStyle(color: Colors.white)),
           ),
           const SizedBox(width: 8),
           OutlinedButton(
@@ -207,9 +230,9 @@ class FamilyPanelScreen2 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-            child: const Text(
+            child: Text(
               "Manage Access",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.brown.shade300),
             ),
           ),
         ],
@@ -245,21 +268,13 @@ class FamilyPanelScreen2 extends StatelessWidget {
             children: [
               CircleAvatar(radius: 20, backgroundImage: AssetImage(image)),
               const SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                  ),
-                  Text(
-                    relation,
-                    style: const TextStyle(fontSize: 12, color: Colors.grey),
-                  ),
-                ],
+              Text(
+                "$name • $relation",
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
@@ -269,17 +284,19 @@ class FamilyPanelScreen2 extends StatelessWidget {
             style: const TextStyle(fontSize: 13, color: Colors.black87),
           ),
           const SizedBox(height: 8),
-          OutlinedButton(
-            onPressed: () {},
-            style: OutlinedButton.styleFrom(
-              side: const BorderSide(color: Colors.grey),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+          Center(
+            child: OutlinedButton(
+              onPressed: () {},
+              style: OutlinedButton.styleFrom(
+                side: const BorderSide(color: Colors.grey),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
-            ),
-            child: const Text(
-              "Reply",
-              style: TextStyle(color: Colors.black, fontSize: 13),
+              child: const Text(
+                "Reply",
+                style: TextStyle(color: Colors.black, fontSize: 13),
+              ),
             ),
           ),
         ],
