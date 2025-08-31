@@ -102,9 +102,10 @@ flutter:
     - assets/images/photo boy.png
     - assets/images/participant.png  
     - assets/images/Vector.png  
-    - assets/images/1.png
-    - assets/images/profile2.png
-    - assets/images/profile3.png
+    - assets/images/Profile (1).png
+    - assets/images/Profile (2).png
+    - assets/images/Profile (3).png
+   
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'family_panel_screen2.dart';
 
 class FamilyPanelScreen extends StatelessWidget {
   const FamilyPanelScreen({super.key});
@@ -17,7 +18,14 @@ class FamilyPanelScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Icon(Icons.arrow_back, color: Colors.black, size: 28),
+                  GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.black,
+                      size: 28,
+                    ),
+                  ),
                   Expanded(
                     child: Center(
                       child: Text(
@@ -100,7 +108,7 @@ class FamilyPanelScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Dark green square box with "i"
+              // Info Box
               Container(
                 height: 80,
                 width: double.infinity,
@@ -192,7 +200,7 @@ class FamilyPanelScreen extends StatelessWidget {
                     width: 40,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.red, // dark red
+                      color: Colors.red,
                     ),
                     child: const Icon(Icons.call_end, color: Colors.white),
                   ),
@@ -201,18 +209,28 @@ class FamilyPanelScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Join Call button
-              Container(
-                height: 45,
-                width: 184,
-                decoration: BoxDecoration(
-                  color: Colors.brown,
-                  borderRadius: BorderRadius.circular(45 / 2),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Join Call",
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+              // Join Call button (Navigation Example)
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FamilyPanelScreen2(),
+                    ),
+                  );
+                },
+                child: Container(
+                  height: 45,
+                  width: 184,
+                  decoration: BoxDecoration(
+                    color: Colors.brown,
+                    borderRadius: BorderRadius.circular(45 / 2),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Join Call",
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    ),
                   ),
                 ),
               ),
@@ -266,36 +284,32 @@ class FamilyPanelScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 24),
-              Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const FamilyPanelScreen2(),
-                      ),
-                    );
 
-              // Bottom bar single button with icons
+              // Bottom Navigation Bar
               Container(
                 height: 60,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.brown[200],
-                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MembershipPlansScreen(),
-                      ),
-                    );
                   borderRadius: BorderRadius.circular(30),
-
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    Icon(Icons.home, color: Colors.white),
-                    Icon(Icons.people, color: Colors.white),
-                    Icon(Icons.calendar_today, color: Colors.white),
-                    Icon(Icons.settings, color: Colors.white),
-                    
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FamilyPanelScreen2(),
+                          ),
+                        );
+                      },
+                      child: const Icon(Icons.home, color: Colors.white),
+                    ),
+                    const Icon(Icons.people, color: Colors.white),
+                    const Icon(Icons.calendar_today, color: Colors.white),
+                    const Icon(Icons.settings, color: Colors.white),
                   ],
                 ),
               ),
@@ -354,29 +368,9 @@ class FamilyPanelScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // Edit icon
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  border: Border.all(color: Colors.green.shade900),
-                ),
-                child: Icon(Icons.edit, color: Colors.green.shade900),
-              ),
+              Icon(Icons.edit, color: Colors.green.shade900),
               const SizedBox(width: 8),
-              // Delete icon
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  border: Border.all(color: Colors.red.shade900),
-                ),
-                child: Icon(Icons.delete, color: Colors.red.shade900),
-              ),
+              Icon(Icons.delete, color: Colors.red.shade900),
             ],
           ),
           const SizedBox(height: 12),
