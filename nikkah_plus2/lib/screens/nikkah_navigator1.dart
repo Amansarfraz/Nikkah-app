@@ -656,7 +656,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                               child: Image.asset(
                                 // <-- place your second profile image path here
-                                "assets/images/Ahmad S..png",
+                                "assets/images/Ahmed S..png",
                                 fit: BoxFit.cover,
                                 errorBuilder: (context, error, stackTrace) =>
                                     Container(color: const Color(0xFFD8D8D8)),
