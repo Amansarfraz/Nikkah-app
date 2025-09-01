@@ -303,14 +303,14 @@ class HomeScreen extends StatelessWidget {
                   width: 294,
                   height: 70,
                   decoration: BoxDecoration(
-                    color: lightBrown,
+                    color: const Color.fromARGB(255, 138, 79, 8),
                     borderRadius: BorderRadius.circular(35),
                   ),
                   child: const Center(
                     child: Text(
                       'View All',
                       style: TextStyle(
-                        color: Colors.brown,
+                        color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
