@@ -115,10 +115,9 @@ flutter:
     - assets/images/Fatima Khan.png
     - assets/images/Profile (4).png
     - assets/images/Amina R..png
-    - assets/images/Yusuf H..png
-    - assets/images/Yusuf H..png
+    - assets/images/Yusuf H..png 
     - assets/images/Fatima A..png
-    
+    - assets/images/Ahmed S..png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
