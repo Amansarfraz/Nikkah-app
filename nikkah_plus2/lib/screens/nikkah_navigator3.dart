@@ -20,6 +20,9 @@ class HomeScreen extends StatelessWidget {
   static const Color brown = Color(0xFFb78b63);
   static const Color darkBrown = Color(0xFF7f4f33);
   static const Color greenCircle = Color(0xFF2FB14A);
+  static const Color greyButton = Color(0xFFDDDDDD);
+  static const Color blueCircle = Color(0xFF3A86FF);
+  static const Color orangeCircle = Color(0xFFFF9F1C);
 
   @override
   Widget build(BuildContext context) {
@@ -345,6 +348,89 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+
+              const SizedBox(height: 16),
+
+              const Text(
+                'Enhance your search experiences',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+
+              const SizedBox(height: 12),
+
+              // 6 small boxes
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: List.generate(6, (index) {
+                  final titles = [
+                    'Ask the Mufti',
+                    'Family Panel',
+                    'Mahr Calculator',
+                    'Firasa Insights',
+                    'Emotional Journey',
+                    'AI Companion',
+                  ];
+                  return SizedBox(
+                    width: 118,
+                    height: 102,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: const Color(0xFFEFE9E1),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              _iconForIndex(index),
+                              size: 22,
+                              color: brown,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          titles[index],
+                          style: const TextStyle(
+                            color: Color(0xFFB28767),
+                            fontSize: 13,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              ),
+
+              const SizedBox(height: 18),
+
+              // Bottom navigation row
+              Center(
+                child: Container(
+                  width: 371,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: brown,
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Icon(Icons.home, color: Colors.white),
+                      Icon(Icons.search, color: Colors.white),
+                      Icon(Icons.message, color: Colors.white),
+                      Icon(Icons.person, color: Colors.white),
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 24),
             ],
           ),
         ),
@@ -379,7 +465,24 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  static Widget _iconWithCircularBorder(IconData icon, Color borderColor) {
+  IconData _iconForIndex(int idx) {
+    switch (idx) {
+      case 0:
+        return Icons.gavel;
+      case 1:
+        return Icons.group;
+      case 2:
+        return Icons.calculate;
+      case 3:
+        return Icons.insights;
+      case 4:
+        return Icons.favorite;
+      default:
+        return Icons.smart_toy;
+    }
+  }
+
+  Widget _iconWithCircularBorder(IconData icon, Color borderColor) {
     return Container(
       width: 36,
       height: 36,
