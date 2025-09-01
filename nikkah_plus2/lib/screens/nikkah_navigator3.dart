@@ -25,7 +25,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -41,7 +40,6 @@ class HomeScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
@@ -144,9 +142,9 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Heart outline
-                    Icon(
+                    const Icon(
                       Icons.favorite_border,
-                      color: const Color.fromARGB(255, 170, 13, 2),
+                      color: Color.fromARGB(255, 170, 13, 2),
                       size: 48,
                     ),
 
@@ -195,22 +193,48 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 18),
-
-              // 🔎 Search history title
-              const Text(
-                'Search your history',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(height: 10),
-
-              // Saved Searches box (unchanged)
-              _savedSearchesBox(),
-
               const SizedBox(height: 12),
 
-              // Recent Searches box (unchanged)
-              _recentSearchesBox(),
+              // Recent Searches box
+              Container(
+                width: 338,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: const [
+                    BoxShadow(color: Color(0x11000000), blurRadius: 6),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Recent Searches',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 12),
+                    _recentSearchItemWithUse('Medical professionals in Riyadh'),
+                    _recentSearchItemWithUse('Women aged 25-30 in Dubai'),
+                    _recentSearchItemWithUse('Software engineers, 30-35'),
+                    const SizedBox(height: 8),
+                    Container(
+                      width: double.infinity,
+                      height: 44,
+                      decoration: BoxDecoration(
+                        color: brown,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Clear recent searches',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
               const SizedBox(height: 16),
 
@@ -221,8 +245,77 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 12),
 
-              // Keep your features grid (unchanged)
-              _enhanceGrid(),
+              // 6 small boxes
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: List.generate(6, (index) {
+                  final titles = [
+                    'Ask the Mufti',
+                    'Family Panel',
+                    'Mahr Calculator',
+                    'Firasa Insights',
+                    'Emotional Journey',
+                    'AI Companion',
+                  ];
+                  return SizedBox(
+                    width: 118,
+                    height: 102,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: const Color(0xFFEFE9E1),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              _iconForIndex(index),
+                              size: 22,
+                              color: brown,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          titles[index],
+                          style: const TextStyle(
+                            color: Color(0xFFB28767),
+                            fontSize: 13,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              ),
+
+              const SizedBox(height: 18),
+
+              // 371*70 button with 4 white icons
+              Center(
+                child: Container(
+                  width: 371,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: brown,
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      Icon(Icons.home, color: Colors.white),
+                      Icon(Icons.search, color: Colors.white),
+                      Icon(Icons.message, color: Colors.white),
+                      Icon(Icons.person, color: Colors.white),
+                    ],
+                  ),
+                ),
+              ),
 
               const SizedBox(height: 24),
             ],
@@ -232,50 +325,47 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // ---------- Helper Widgets ----------
-
-  Widget _savedSearchesBox() {
-    return Container(
-      width: 338,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: const [BoxShadow(color: Color(0x11000000), blurRadius: 6)],
+  Widget _recentSearchItemWithUse(String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        children: [
+          const Icon(Icons.search, size: 18, color: Colors.grey),
+          const SizedBox(width: 8),
+          Expanded(child: Text(text)),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: greenCircle,
+              borderRadius: BorderRadius.circular(6),
+            ),
+            child: const Text(
+              'use',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
       ),
-      child: const Text(
-        "Saved Searches section...",
-      ), // keep your original code here
     );
   }
 
-  Widget _recentSearchesBox() {
-    return Container(
-      width: 338,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: const [BoxShadow(color: Color(0x11000000), blurRadius: 6)],
-      ),
-      child: const Text(
-        "Recent Searches section...",
-      ), // keep your original code here
-    );
-  }
-
-  Widget _enhanceGrid() {
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: List.generate(6, (index) {
-        return Container(
-          width: 118,
-          height: 102,
-          color: Colors.brown.shade50,
-          child: const Center(child: Text("Feature")),
-        );
-      }),
-    );
+  IconData _iconForIndex(int idx) {
+    switch (idx) {
+      case 0:
+        return Icons.gavel;
+      case 1:
+        return Icons.group;
+      case 2:
+        return Icons.calculate;
+      case 3:
+        return Icons.insights;
+      case 4:
+        return Icons.favorite;
+      default:
+        return Icons.smart_toy;
+    }
   }
 }
