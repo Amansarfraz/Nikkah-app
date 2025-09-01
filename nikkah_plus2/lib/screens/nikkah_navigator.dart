@@ -137,15 +137,15 @@ class HomeScreen extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       decoration: TextDecoration.underline,
-                      decorationColor: Color.fromARGB(255, 110, 60, 14),
-                      decorationThickness: 2,
+                      decorationColor: Color.fromARGB(255, 150, 84, 22),
+                      decorationThickness: 3,
                     ),
                   ),
                   const SizedBox(width: 12),
 
                   // underline (small brown line)
                   const Text(
-                    "AI Recommendations",
+                    "  AI Recommendations",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14,
@@ -154,7 +154,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(width: 12),
                   const Text(
-                    "Recently",
+                    " Recently",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 14,
@@ -310,7 +310,7 @@ class HomeScreen extends StatelessWidget {
                     child: Text(
                       'View All',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.brown,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
