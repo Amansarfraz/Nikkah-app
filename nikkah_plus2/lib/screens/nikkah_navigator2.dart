@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'nikkah_navigator3.dart';
 
 void main() => runApp(const NikkahNavigator2());
 
@@ -137,16 +138,14 @@ class HomeScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 177, 115, 40),
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color.fromARGB(255, 150, 84, 22),
+                      decorationThickness: 3,
                     ),
                   ),
                   const SizedBox(width: 12),
 
                   // underline (small brown line)
-                  Container(
-                    width: 40,
-                    height: 3,
-                    color: Color.fromARGB(255, 150, 84, 22),
-                  ),
                   const SizedBox(width: 12),
 
                   // Saved Profile (black)
@@ -423,7 +422,14 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NikkahNavigator3(),
+                            ),
+                          );
+                        },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(vertical: 12),
                           child: Text(
