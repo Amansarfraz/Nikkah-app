@@ -228,7 +228,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   _profileCard(
                     context,
-                    imagePath: "assets/images/Amina R.png",
+                    imagePath: "assets/images/Amina R..png",
                     distanceText: '5 km away',
                     leftBottomName: 'Amina R., 28',
                     leftBottomLocation: 'Dubai, UAE',
