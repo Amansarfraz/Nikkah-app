@@ -136,11 +136,14 @@ class HomeScreen extends StatelessWidget {
                       color: Color(0xFFefe1d0),
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color(0xFFb78b63),
+                      decorationThickness: 2,
                     ),
                   ),
                   const SizedBox(width: 12),
+
                   // underline (small brown line)
-                  Container(width: 100, height: 3, color: brown),
                   const Spacer(),
                   const Text(
                     "AI Recommendations",
@@ -781,20 +784,6 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  // helper recent search item row (original simple version - kept for other uses)
-  Widget _recentSearchItem(String text) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Row(
-        children: [
-          const Icon(Icons.search, size: 18, color: Colors.grey),
-          const SizedBox(width: 8),
-          Expanded(child: Text(text)),
         ],
       ),
     );
