@@ -133,18 +133,17 @@ class HomeScreen extends StatelessWidget {
                   const Text(
                     "Discover",
                     style: TextStyle(
-                      color: Color(0xFFefe1d0),
+                      color: Color.fromARGB(255, 177, 115, 40),
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       decoration: TextDecoration.underline,
-                      decorationColor: Color(0xFFb78b63),
+                      decorationColor: Color.fromARGB(255, 110, 60, 14),
                       decorationThickness: 2,
                     ),
                   ),
                   const SizedBox(width: 12),
 
                   // underline (small brown line)
-                  const Spacer(),
                   const Text(
                     "AI Recommendations",
                     style: TextStyle(
@@ -211,13 +210,10 @@ class HomeScreen extends StatelessWidget {
                             horizontal: 12,
                             vertical: 8,
                           ),
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
+
                           child: const Text(
                             'Advanced Search',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           ),
                         ),
                       ],
