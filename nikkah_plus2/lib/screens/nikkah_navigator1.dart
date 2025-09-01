@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'nikkah_navigator2.dart';
 
 void main() => runApp(const NikkahNavigator1());
 
@@ -496,7 +497,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 12),
+                    SingleChildScrollView(child: const SizedBox(height: 12)),
 
                     // Row: Firasa insights (i icon in brown circle), then three icons: red heart, whatsapp (inside green circle), and green dot indicators
                     Padding(
@@ -1012,7 +1013,14 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NikkahNavigator2(),
+                            ),
+                          );
+                        },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(vertical: 12),
                           child: Text(

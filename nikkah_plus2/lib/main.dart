@@ -35,6 +35,7 @@ import 'screens/family_panel_screen3.dart';
 import 'screens/family_panel_screen4.dart';
 import 'screens/nikkah_navigator.dart';
 import 'screens/nikkah_navigator1.dart';
+import 'screens/nikkah_navigator2.dart';
 
 void main() {
   runApp(const NikkahPlus2App());
@@ -90,7 +91,8 @@ class NikkahPlus2App extends StatelessWidget {
         '/family_panel_screen3': (context) => const FamilyPanelScreen3(),
         '/family_panel_screen4': (context) => FamilyPanelScreen4(),
         '/nikkah_navigator': (context) => const NikkahNavigator(),
-        '/nikkah navigator1': (context) => const NikkahNavigator1(),
+        '/nikkah_navigator1': (context) => const NikkahNavigator1(),
+        '/nikkah_navigator2': (context) => const NikkahNavigator2(),
       },
     );
   }
