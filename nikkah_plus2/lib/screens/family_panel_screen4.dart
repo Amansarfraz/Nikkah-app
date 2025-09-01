@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'nikkah_navigator.dart';
 
 class FamilyPanelScreen4 extends StatelessWidget {
   const FamilyPanelScreen4({super.key});
@@ -210,6 +211,16 @@ class FamilyPanelScreen4 extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
             selectedItemColor: Colors.brown,
             unselectedItemColor: Colors.grey[700],
+            onTap: (index) {
+              if (index == 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NikkahNavigator(),
+                  ),
+                );
+              }
+            },
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.people), label: ""),

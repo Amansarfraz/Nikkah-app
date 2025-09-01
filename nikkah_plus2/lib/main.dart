@@ -26,13 +26,14 @@ import 'screens/video_intro_app.dart';
 import 'screens/bio_screen_app.dart';
 import 'screens/bio_screen_app2.dart';
 import 'screens/interests_personality_page.dart';
-import 'screens/home_screen.dart';
+import 'screens/home_screen.dart' as home_screen;
 import 'screens/swipe_right_screen.dart';
 import 'screens/swipe_left_screen.dart';
 import 'screens/family_panel_screen.dart';
 import 'screens/family_panel_screen2.dart';
 import 'screens/family_panel_screen3.dart';
 import 'screens/family_panel_screen4.dart';
+import 'screens/nikkah_navigator.dart';
 
 void main() {
   runApp(const NikkahPlus2App());
@@ -75,7 +76,7 @@ class NikkahPlus2App extends StatelessWidget {
         '/bio_screen_app': (context) => BioScreenApp(),
         '/bio_screen_app2': (context) => BioScreenApp2(),
         '/interests_personality_page': (context) => InterestsPersonalityPage(),
-        '/home_screen': (context) => HomeScreen(),
+        '/home_screen': (context) => const home_screen.HomeScreen(),
         '/membership_screen': (context) => MembershipPlansScreen(),
         '/discover_matches_screen': (context) => DiscoverMatchesScreen(),
         '/quick_view_screen': (context) => QuickViewScreen(),
@@ -87,6 +88,7 @@ class NikkahPlus2App extends StatelessWidget {
         '/family_panel_screen2': (context) => const FamilyPanelScreen2(),
         '/family_panel_screen3': (context) => const FamilyPanelScreen3(),
         '/family_panel_screen4': (context) => FamilyPanelScreen4(),
+        '/nikkah_navigator': (context) => const NikkahNavigator(),
       },
     );
   }
