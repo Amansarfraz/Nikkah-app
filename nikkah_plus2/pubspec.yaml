@@ -118,7 +118,17 @@ flutter:
     - assets/images/Yusuf H..png 
     - assets/images/Fatima A..png
     - assets/images/Ahmed S..png
-
+    - assets/images/input.png
+    - assets/images/cardS.png
+    - assets/images/32.png
+    - assets/images/33.png
+    - assets/images/34.png
+    - assets/images/1st.png
+    - assets/images/2nd.png
+    - assets/images/3rd.png
+    - assets/images/4th.png
+    - assets/images/5th.png
+    - assets/images/6th.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
