@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'nikkah_navigator4.dart';
 
 void main() => runApp(const NikkahNavigator3());
 
@@ -178,7 +179,14 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(25),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NikkahNavigator4(),
+                            ),
+                          );
+                        },
                         child: const Text(
                           "Discover",
                           style: TextStyle(
