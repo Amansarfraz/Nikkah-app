@@ -297,7 +297,14 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NikkahNavigator4(),
+                            ),
+                          );
+                        },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(vertical: 12),
                           child: Text(
