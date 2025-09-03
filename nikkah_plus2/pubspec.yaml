@@ -161,6 +161,18 @@ flutter:
     - assets/images/f21.png
     - assets/images/f22.png
     - assets/images/f23.png
+    - assets/images/mahr1.png
+    - assets/images/mahr2.png
+    - assets/images/mahr3.png
+    - assets/images/mahr4.png
+    - assets/images/edu.png
+    - assets/images/fin.png
+    - assets/images/cult.png
+    - assets/images/age.png
+    - assets/images/marital.png
+    - assets/images/emp.png
+    - assets/images/region.png
+    - assets/images/info.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

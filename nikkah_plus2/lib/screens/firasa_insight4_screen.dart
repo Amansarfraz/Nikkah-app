@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// Make sure this import is correct
+import 'mahr_calculator1_screen.dart'; // Make sure this import is correct
 
 class FirasaInsight4Screen extends StatelessWidget {
   const FirasaInsight4Screen({super.key});
@@ -40,7 +40,14 @@ class FirasaInsight4Screen extends StatelessWidget {
                 child: Row(
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MahrCalculator1Screen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Personality',
                         style: TextStyle(fontSize: 16),
@@ -48,7 +55,14 @@ class FirasaInsight4Screen extends StatelessWidget {
                     ),
                     const SizedBox(width: 20),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MahrCalculator1Screen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Compatibility',
                         style: TextStyle(fontSize: 16),
@@ -56,7 +70,14 @@ class FirasaInsight4Screen extends StatelessWidget {
                     ),
                     const SizedBox(width: 20),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MahrCalculator1Screen(),
+                          ),
+                        );
+                      },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -75,7 +96,14 @@ class FirasaInsight4Screen extends StatelessWidget {
                     ),
                     const SizedBox(width: 20),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MahrCalculator1Screen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Islamic Tradition',
                         style: TextStyle(fontSize: 16),
@@ -187,7 +215,14 @@ class FirasaInsight4Screen extends StatelessWidget {
             backgroundColor: Colors.brown.shade300,
             padding: const EdgeInsets.symmetric(vertical: 16),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MahrCalculator1Screen(),
+              ),
+            );
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
