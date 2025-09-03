@@ -6,180 +6,89 @@ class DiscoverMatchesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const green = Color(0xFF008080);
+    const lightBrown = Color(0xFFD4B89B);
+    const lightShade = Color(0xFFF5F5F5);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            // Header
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Text(
-                "Discover Matches",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final double screenWidth = constraints.maxWidth;
+            final double frontImageWidth = screenWidth - 100;
 
-            // Upgrade Card
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFF006400),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                padding: const EdgeInsets.all(12),
-                child: Row(
+            return Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Column(
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "Upgrade to Nika7 Gold",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 4),
-                          Text(
-                            "See who likes you & unlock premium features",
-                            style: TextStyle(color: Colors.white, fontSize: 13),
-                          ),
-                        ],
-                      ),
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 14,
-                          vertical: 8,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Upgrade",
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      child: Text(
+                        'Discover Matches',
                         style: TextStyle(
-                          color: Color(0xFF006400),
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
-
-            // Profile Card
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
-                ),
-                child: Column(
-                  children: [
-                    // Image with reduced width and slightly taller
-                    Container(
-                      height: 380,
-                      width: MediaQuery.of(context).size.width * 0.85,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 6,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Stack(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: green,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
                           children: [
-                            Image.asset(
-                              "assets/images/photo.png",
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: double.infinity,
-                            ),
-
-                            // Bottom Info Box over the image
-                            Positioned(
-                              bottom: 0,
-                              left: 0,
-                              right: 0,
-                              child: Container(
-                                width: double.infinity,
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 8,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.8),
-                                  borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(16),
-                                    bottomRight: Radius.circular(16),
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+                            Expanded(
+                              child: RichText(
+                                text: const TextSpan(
                                   children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: const [
-                                        Text(
-                                          "Mohammad Ali, 33",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                        SizedBox(height: 4),
-                                        Text(
-                                          "Charted Accountant",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
+                                    TextSpan(
+                                      text: 'Upgrade to Nika7 Gold',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                      ),
                                     ),
-                                    Container(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 10,
-                                        vertical: 6,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF8B5E3C),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: const Text(
-                                        "Quick View",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 10,
-                                        ),
+                                    TextSpan(
+                                      text:
+                                          '\n\nSee who likes you & unlock premium features',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.normal,
+                                        color: Colors.white,
+                                        fontSize: 12,
                                       ),
                                     ),
                                   ],
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const QuickViewScreen(),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              child: const Text(
+                                'Upgrade',
+                                style: TextStyle(
+                                  color: green,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -187,106 +96,167 @@ class DiscoverMatchesScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 30),
 
-                    const SizedBox(height: 16),
-
-                    // Three icons row with specific sizes
-                    SizedBox(
-                      width: 295,
-                      height: 99,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _customCircleIcon(
-                            bgSize: 78,
-                            iconSize: 30,
-                            icon: Icons.close,
-                            bgColor: Colors.brown.shade100,
-                            iconColor: Colors.green,
+                    // ✅ Stack with back, front & black info box
+                    Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 90),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: AspectRatio(
+                              aspectRatio: 3 / 4,
+                              child: Image.asset(
+                                'assets/images/bg content.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
-                          _customCircleIcon(
-                            bgSize: 99,
-                            iconSize: 42.5,
-                            icon: Icons.favorite,
-                            bgColor: const Color(0xFF8B5E3C),
-                            iconColor: Colors.white,
+                        ),
+                        Positioned(
+                          top: 10,
+                          left: 50,
+                          right: 50,
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                                child: AspectRatio(
+                                  aspectRatio: 3 / 4,
+                                  child: Image.asset(
+                                    'assets/images/content.png',
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: frontImageWidth,
+                                decoration: const BoxDecoration(
+                                  color: Colors.black87,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20),
+                                  ),
+                                ),
+                                padding: const EdgeInsets.all(12),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            'Mohammad Ali, 33',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w900,
+                                              fontSize: 22,
+                                            ),
+                                          ),
+                                          SizedBox(height: 4),
+                                          Text(
+                                            'Charted Accountant',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 8,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: lightBrown,
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: const Text(
+                                        'Quick View',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          _customCircleIcon(
-                            bgSize: 78,
-                            iconSize: 25,
-                            icon: Icons.star,
-                            bgColor: Colors.brown.shade100,
-                            iconColor: Colors.brown,
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
+                    const Spacer(),
                   ],
                 ),
-              ),
-            ),
-
-            Scaffold(
-              backgroundColor: Colors.white,
-              body: SafeArea(
-                child: Column(
-                  children: [
-                    // ... your content ...
-                  ],
-                ),
-              ),
-
-              // ✅ put here
-              bottomNavigationBar: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const QuickViewScreen(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFD4B89B),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
+                Positioned(
+                  bottom: 60,
+                  left: 0,
+                  right: 0,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/images/box.png', height: 20),
-                      Image.asset('assets/images/box1.png', height: 20),
-                      Image.asset('assets/images/box2.png', height: 20),
-                      Image.asset('assets/images/box3.png', height: 20),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                          color: lightShade,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset('assets/images/ddd.png', height: 50),
+                      ),
+                      const SizedBox(width: 15),
+                      Image.asset('assets/images/like.png', height: 80),
+                      const SizedBox(width: 15),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: const BoxDecoration(
+                          color: lightShade,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset('assets/images/sss.png', height: 50),
+                      ),
                     ],
                   ),
                 ),
-              ),
-            ),
-          ],
+                Positioned(
+                  bottom: 20,
+                  left: 20,
+                  right: 20,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    decoration: BoxDecoration(
+                      color: lightBrown,
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset('assets/images/box4.png', height: 28),
+                        Image.asset('assets/images/box5.png', height: 28),
+                        Image.asset('assets/images/box6.png', height: 28),
+                        Image.asset('assets/images/box7.png', height: 28),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
         ),
-      ),
-    );
-  }
-
-  // Custom icon widget with exact sizes
-  Widget _customCircleIcon({
-    required double bgSize,
-    required double iconSize,
-    required IconData icon,
-    required Color bgColor,
-    required Color iconColor,
-  }) {
-    return Container(
-      width: bgSize,
-      height: bgSize,
-      decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
-      child: Center(
-        child: Icon(icon, color: iconColor, size: iconSize),
       ),
     );
   }
