@@ -39,6 +39,8 @@ import 'screens/nikkah_navigator2.dart';
 import 'screens/nikkah_navigator3.dart';
 import 'screens/firasa_insight1_screen.dart';
 import 'screens/firasa_insight2_screen.dart';
+import 'screens/firasa_insight3_screen.dart';
+import 'screens/firasa_insight4_screen.dart';
 
 void main() {
   runApp(const NikkahPlus2App());
@@ -99,6 +101,8 @@ class NikkahPlus2App extends StatelessWidget {
         '/nikkah_navigator3': (context) => const NikkahNavigator3(),
         '/firasa_insight1_screen': (context) => const FirasaInsight1Screen(),
         '/firasa_insight2_screen': (context) => const FirasaInsight2Screen(),
+        '/firasa_insight3_screen': (context) => const FirasaInsight3Screen(),
+        '/firasa_insight4_screen': (context) => const FirasaInsight4Screen(),
       },
     );
   }
