@@ -189,6 +189,19 @@ flutter:
     - assets/images/step2.png
     - assets/images/step3.png
     - assets/images/step4.png
+    - assets/images/eicon.png
+    - assets/images/jimage1.png
+    - assets/images/discovery.png
+    - assets/images/jstep2.png
+    - assets/images/jstep2b.png
+    - assets/images/jstep3.png
+    - assets/images/jstep4.png
+    - assets/images/excitement.png
+    - assets/images/patience.png
+    - assets/images/thoughtfulness.png
+    - assets/images/clarity.png
+    - assets/images/journal.png
+    - 
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
