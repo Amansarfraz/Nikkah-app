@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/inbox_screen.dart';
+import 'inbox_screen.dart';
 
 class YourJourneyScreen extends StatelessWidget {
   const YourJourneyScreen({super.key});
