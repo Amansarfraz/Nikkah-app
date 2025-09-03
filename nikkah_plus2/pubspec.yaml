@@ -173,6 +173,16 @@ flutter:
     - assets/images/emp.png
     - assets/images/region.png
     - assets/images/info.png
+    - assets/images/icon1.png
+    - assets/images/mahr5.png
+    - assets/images/mahr6.png
+    - assets/images/mahr7.png
+    - assets/images/mahr8.png 
+    - assets/images/icon2.png
+    - assets/images/icon3.png
+    - assets/images/icon4.png
+    - assets/images/icon5.png
+    - assets/images/icon6.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
