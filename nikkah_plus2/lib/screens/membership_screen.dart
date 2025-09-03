@@ -169,15 +169,35 @@ class MembershipPlansScreen extends StatelessWidget {
         ),
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: green,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
-        ],
+      // ✅ Bottom custom button with Navigator
+      bottomNavigationBar: SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MembershipPlansScreen(),
+              ),
+            ); // Navigate to SecondScreen on button tap
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFFD4B89B),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 16),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset('assets/images/box.png', height: 20),
+              Image.asset('assets/images/box1.png', height: 20),
+              Image.asset('assets/images/box2.png', height: 20),
+              Image.asset('assets/images/box3.png', height: 20),
+            ],
+          ),
+        ),
       ),
     );
   }
