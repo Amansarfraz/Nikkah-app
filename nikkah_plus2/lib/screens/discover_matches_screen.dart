@@ -129,7 +129,7 @@ class DiscoverMatchesScreen extends StatelessWidget {
                                 child: AspectRatio(
                                   aspectRatio: 3 / 4,
                                   child: Image.asset(
-                                    'assets/images/content.png',
+                                    'assets/images/content1.png',
                                     fit: BoxFit.cover,
                                     width: double.infinity,
                                   ),
