@@ -214,6 +214,7 @@ flutter:
     - assets/images/box4.png
     - assets/images/box5.png 
     - assets/images/box6.png 
+    - assets/images/box7.png 
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
