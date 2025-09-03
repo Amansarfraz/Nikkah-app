@@ -141,6 +141,15 @@ flutter:
     - assets/images/f5.png
     - assets/images/f6.png
     - assets/images/ficon.png
+    - assets/images/fibox.png
+    - assets/images/f7.png
+    - assets/images/f8.png 
+    - assets/images/f9.png  
+    - assets/images/f10.png
+    - assets/images/f11.png 
+    - assets/images/f12.png 
+    - assets/images/f13.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
