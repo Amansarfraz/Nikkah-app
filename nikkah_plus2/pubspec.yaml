@@ -129,6 +129,18 @@ flutter:
     - assets/images/4th.png
     - assets/images/5th.png
     - assets/images/6th.png
+    - assets/images/fibox.png
+    - assets/images/85.png
+    - assets/images/78.png
+    - assets/images/92.png
+    - assets/images/88.png
+    - assets/images/f1.png
+    - assets/images/f2.png
+    - assets/images/f3.png
+    - assets/images/f4.png
+    - assets/images/f5.png
+    - assets/images/f6.png
+    - assets/images/ficon.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

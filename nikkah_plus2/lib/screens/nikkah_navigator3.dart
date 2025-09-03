@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'nikkah_navigator4.dart';
+import 'firasa_insight1_screen.dart';
 
 void main() => runApp(const NikkahNavigator3());
 
@@ -183,7 +183,8 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const NikkahNavigator4(),
+                              builder: (context) =>
+                                  const FirasaInsight1Screen(),
                             ),
                           );
                         },
@@ -301,7 +302,8 @@ class HomeScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const NikkahNavigator4(),
+                              builder: (context) =>
+                                  const FirasaInsight1Screen(),
                             ),
                           );
                         },
