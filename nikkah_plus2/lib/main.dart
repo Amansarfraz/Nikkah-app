@@ -42,6 +42,8 @@ import 'screens/firasa_insight2_screen.dart';
 import 'screens/firasa_insight3_screen.dart';
 import 'screens/firasa_insight4_screen.dart';
 import 'screens/mahr_calculator1_screen.dart';
+import 'screens/mahr_calculator2_screen.dart';
+import 'screens/mahr_calculator3_screen.dart';
 
 void main() {
   runApp(const NikkahPlus2App());
@@ -105,6 +107,8 @@ class NikkahPlus2App extends StatelessWidget {
         '/firasa_insight3_screen': (context) => const FirasaInsight3Screen(),
         '/firasa_insight4_screen': (context) => const FirasaInsight4Screen(),
         '/mahr_calculator1_screen': (context) => const MahrCalculator1Screen(),
+        '/mahr_calculator2_screen': (context) => const MahrCalculator2Screen(),
+        '/mahr_calculator3_screen': (context) => const MahrCalculator3Screen(),
       },
     );
   }
