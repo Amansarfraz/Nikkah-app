@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nikkah_plus2/screens/family_panel_screen.dart';
+import 'family_panel_screen.dart';
 
 class DiscoverMatchesScreen2 extends StatelessWidget {
   const DiscoverMatchesScreen2({super.key});
