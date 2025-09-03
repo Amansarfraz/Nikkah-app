@@ -276,31 +276,48 @@ class SwipeRightScreen extends StatelessWidget {
                     builder: (context) => const SwipeLeftScreen(),
                   ),
                 );
-              }, // Bottom Bar
-              child: Container(
-                height: 80,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF8B5E3C),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 20,
-                ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Icon(Icons.phone, color: Colors.white, size: 26),
-                    Icon(
-                      Icons.chat_bubble_outline,
-                      color: Colors.white,
-                      size: 26,
+              },
+
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SwipeRightScreen(),
                     ),
-                    Icon(Icons.person_outline, color: Colors.white, size: 26),
-                    Icon(Icons.share, color: Colors.white, size: 26),
-                  ],
+                  );
+                },
+                // ✅ put here
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SwipeRightScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFD4B89B),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset('assets/images/box.png', height: 20),
+                        Image.asset('assets/images/box1.png', height: 20),
+                        Image.asset('assets/images/box2.png', height: 20),
+                        Image.asset('assets/images/box3.png', height: 20),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+              ), // Bottom Bar
             ),
           ],
         ),

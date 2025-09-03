@@ -270,42 +270,44 @@ class QuickViewScreen extends StatelessWidget {
                     ),
                   );
                 },
-                             // ✅ put here
-              bottomNavigationBar: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SwipeRightScreen(),
+                // ✅ put here
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SwipeRightScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFD4B89B),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
                       ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFD4B89B),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.asset('assets/images/box.png', height: 20),
-                      Image.asset('assets/images/box1.png', height: 20),
-                      Image.asset('assets/images/box2.png', height: 20),
-                      Image.asset('assets/images/box3.png', height: 20),
-                    ],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset('assets/images/box.png', height: 20),
+                        Image.asset('assets/images/box1.png', height: 20),
+                        Image.asset('assets/images/box2.png', height: 20),
+                        Image.asset('assets/images/box3.png', height: 20),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
+
   Widget _customCircleIcon({
     required double bgSize,
     required double iconSize,
